@@ -116,7 +116,6 @@ public class player1Controler : MonoBehaviour {
 		if (CanMove == true) {
 			ScaleCheck ();
 		}
-        OnGroundCheck();
         AttackInput();
         Damage();
         Block();
@@ -152,7 +151,6 @@ public class player1Controler : MonoBehaviour {
 						rig2D.velocity = (new Vector2 (-1 * 20, JumpForce));
 					}
 				}
-			rig2D.gravityScale = 5;
 				attack [0] = true;
 				attacktimer [0] = 0;
 				timesPressed [0]++;
@@ -195,7 +193,6 @@ public class player1Controler : MonoBehaviour {
 
 				if (!onGround)
 				{
-					rig2D.gravityScale = 10;
 					Vector3 dir = enemy.position - transform.position;
 					rig2D.AddForce(new Vector3(-dir.x* m_knockBack * 300, 200,0));
 				}
@@ -221,18 +218,7 @@ public class player1Controler : MonoBehaviour {
             }
         }
     }
-
-    void OnGroundCheck()
-    {
-        if (!onGround)
-        {
-            rig2D.gravityScale = 5;
-        }
-        else
-        {
-            rig2D.gravityScale = 1;
-        }
-    }
+    
 
     void UpdateAnimator()
     {
