@@ -10,7 +10,7 @@ public class StageSelctionCamera : MonoBehaviour
     public Vector3[] m_rotations;
 
     float nextPrevious;
-    int CurrentSelection = 0;
+    int CurrentSelection = 1;
 
     // Update is called once per frame
     void Update()

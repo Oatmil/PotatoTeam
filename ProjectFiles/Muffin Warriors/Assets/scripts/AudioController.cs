@@ -5,54 +5,62 @@ public class AudioController : MonoBehaviour {
 
     public AudioClip[] m_SoundEffects;
 
-    public float Volume1;
-    AudioSource sounds;
+    public float[] VolumeIndex;
+    AudioSource audio;
     void Awake()
     {
-        sounds = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
     }
 
     void IdleSound()
     {
-        sounds.clip = m_SoundEffects[0];
-        sounds.Play();
+        audio.clip = m_SoundEffects[0];
+        audio.volume = VolumeIndex[0];
+        audio.Play();
     }
 
     void DownSound()
     {
-        sounds.clip = m_SoundEffects[1];
-        sounds.Play();
+        audio.clip = m_SoundEffects[1];
+        audio.volume = VolumeIndex[1];
+        audio.Play();
     }
 
     void InAirSound()
     {
-        sounds.clip = m_SoundEffects[2];
-        sounds.Play();
+        audio.clip = m_SoundEffects[2];
+        audio.volume = VolumeIndex[2];
+        audio.Play();
     }
     void UpSound()
     {
-        sounds.clip = m_SoundEffects[3];
-        sounds.Play();
+        audio.clip = m_SoundEffects[3];
+        audio.volume = VolumeIndex[3];
+        audio.Play();
     }
 
     void DmgIdle()
     {
-        sounds.clip = m_SoundEffects[4];
-        sounds.Play();
+        audio.clip = m_SoundEffects[4];
+        audio.volume = VolumeIndex[4];
+        audio.Play();
     }
     void DmgDown()
     {
-        sounds.clip = m_SoundEffects[5];
-        sounds.Play();
+        audio.clip = m_SoundEffects[5];
+        audio.volume = VolumeIndex[5];
+        audio.Play();
     }
     void DmgInAir()
     {
-        sounds.clip = m_SoundEffects[6];
-        sounds.Play();
+        audio.clip = m_SoundEffects[6];
+        audio.volume = VolumeIndex[6];
+        audio.Play();
     }
     void DmgUpAtk()
     {
-        sounds.clip = m_SoundEffects[7];
-        sounds.Play();
+        audio.clip = m_SoundEffects[7];
+        audio.volume = VolumeIndex[7];
+        audio.Play();
     }
 }
