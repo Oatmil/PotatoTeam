@@ -20,7 +20,8 @@ public class player1Controler : MonoBehaviour {
     float jmpForce;
     bool jumpKey; // checking of jump
     bool falling; // cheking of falling
-    bool onGround; // checking on ground
+   // [HideInInspector]
+    public bool onGround; // checking on ground
     bool allowMovement; // to allow movement
 
     public float attackRate = 0.3f; // duration of checking of attack before setting bool to false
@@ -180,6 +181,7 @@ public class player1Controler : MonoBehaviour {
     {
         if (damage)
         {
+            CanMove = false;
             noDamageTimer += Time.deltaTime;
 
             if (noDamageTimer > noDamage)
@@ -196,6 +198,7 @@ public class player1Controler : MonoBehaviour {
 					Vector3 dir = enemy.position - transform.position;
 					rig2D.AddForce(new Vector3(-dir.x* m_knockBack * 300, 200,0));
 				}
+                CanMove = true;
             }
 
             
