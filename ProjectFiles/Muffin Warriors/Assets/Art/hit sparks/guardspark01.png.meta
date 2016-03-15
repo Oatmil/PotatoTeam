@@ -1,0 +1,241 @@
+fileFormatVersion: 2
+guid: c546c662aa6e2fe4692a51d319a6e94f
+timeCreated: 1457945323
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: guardspark01_0
+    21300002: guardspark01_1
+    21300004: guardspark01_2
+    21300006: guardspark01_3
+    21300008: guardspark01_4
+    21300010: guardspark01_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: guardspark01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 31}
+        - {x: -22, y: 26}
+        - {x: -22, y: -26}
+        - {x: -19, y: -35}
+        - {x: -14, y: -35}
+        - {x: -8, y: -28}
+        - {x: -8, y: 27}
+        - {x: -12, y: 31}
+    - name: guardspark01_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 300
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 125}
+        - {x: -16, y: 125}
+        - {x: -25, y: 122}
+        - {x: -28, y: 35}
+        - {x: -28, y: -38}
+        - {x: -21, y: -72}
+        - {x: -15, y: -97}
+        - {x: -6, y: -110}
+        - {x: 12, y: -110}
+        - {x: 12, y: 83}
+        - {x: 10, y: 123}
+    - name: guardspark01_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 300
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 98}
+        - {x: -28, y: -89}
+        - {x: 5, y: -89}
+        - {x: 11, y: -68}
+        - {x: 11, y: 77}
+        - {x: 0, y: 98}
+    - name: guardspark01_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -107}
+        - {x: 0, y: -121}
+        - {x: 13, y: -121}
+        - {x: 13, y: -81}
+        - {x: 12, y: -77}
+        - {x: 1, y: -77}
+        - {x: 1, y: -78}
+        - {x: -7, y: -99}
+      - - {x: -20, y: 96}
+        - {x: -28, y: 59}
+        - {x: -28, y: -59}
+        - {x: -21, y: -83}
+        - {x: -15, y: -89}
+        - {x: 4, y: -89}
+        - {x: 11, y: -54}
+        - {x: 11, y: 57}
+        - {x: -2, y: 96}
+      - - {x: 7, y: 139}
+        - {x: 0, y: 134}
+        - {x: -9, y: 109}
+        - {x: -9, y: 97}
+        - {x: 5, y: 88}
+        - {x: 18, y: 88}
+        - {x: 18, y: 139}
+    - name: guardspark01_4
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -114}
+        - {x: 11, y: -133}
+        - {x: 18, y: -133}
+        - {x: 18, y: -127}
+        - {x: 14, y: -117}
+        - {x: 0, y: -106}
+        - {x: -3, y: -107}
+      - - {x: 9, y: -107}
+        - {x: 7, y: -109}
+        - {x: 7, y: -111}
+        - {x: 10, y: -114}
+        - {x: 12, y: -114}
+        - {x: 15, y: -111}
+        - {x: 15, y: -109}
+        - {x: 13, y: -107}
+      - - {x: -1, y: 96}
+        - {x: -17, y: 96}
+        - {x: -27, y: 51}
+        - {x: -27, y: -58}
+        - {x: -16, y: -89}
+        - {x: 1, y: -89}
+        - {x: 5, y: -88}
+        - {x: 9, y: -18}
+        - {x: 9, y: 49}
+        - {x: 4, y: 92}
+      - - {x: 13, y: 126}
+        - {x: 12, y: 124}
+        - {x: 12, y: 122}
+        - {x: 15, y: 120}
+        - {x: 19, y: 120}
+        - {x: 20, y: 122}
+        - {x: 20, y: 125}
+        - {x: 18, y: 126}
+      - - {x: 11, y: 142}
+        - {x: 5, y: 135}
+        - {x: 5, y: 130}
+        - {x: 6, y: 128}
+        - {x: 10, y: 128}
+        - {x: 18, y: 137}
+        - {x: 18, y: 142}
+    - name: guardspark01_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 60
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -142}
+        - {x: 22, y: -147}
+        - {x: 27, y: -147}
+        - {x: 29, y: -146}
+        - {x: 29, y: -143}
+        - {x: 26, y: -138}
+        - {x: 21, y: -138}
+        - {x: 19, y: -140}
+      - - {x: -20, y: 85}
+        - {x: -22, y: 84}
+        - {x: -28, y: 43}
+        - {x: -28, y: -55}
+        - {x: -19, y: -85}
+        - {x: 1, y: -85}
+        - {x: 9, y: -60}
+        - {x: 9, y: 71}
+        - {x: 3, y: 85}
+      - - {x: 18, y: 149}
+        - {x: 15, y: 148}
+        - {x: 15, y: 138}
+        - {x: 20, y: 138}
+        - {x: 26, y: 144}
+        - {x: 26, y: 149}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

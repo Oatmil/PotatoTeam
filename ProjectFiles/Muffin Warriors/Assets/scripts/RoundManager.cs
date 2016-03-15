@@ -76,7 +76,6 @@ public class RoundManager : MonoBehaviour {
 	{
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		for (int i = 0; i < players.Length; i++) {
-			players [i].GetComponent<player1Controler> ().ScaleCheck ();
 			players [i].GetComponent<player1Controler> ().enabled = true;
 			yield return new WaitForSeconds (0.2f);
 

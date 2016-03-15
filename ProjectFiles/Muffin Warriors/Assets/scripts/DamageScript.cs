@@ -22,6 +22,23 @@ public class DamageScript : MonoBehaviour
                         Banner.FadeDuration = 1.0f;
                         tempBanner.text = "block";
                         Debug.Log("block");
+                        GameObject blockObject = blocksparkpool.m_instance1.NewObject();
+                        if (blockObject != null)
+                        {
+                            
+                            blockObject.transform.rotation = Quaternion.identity;
+                            if (col.transform.root.localScale.x > 0.1f)
+                            {
+                                blockObject.transform.localScale = new Vector3(-1, 1, 1);
+                                blockObject.transform.position = new Vector3(col.transform.position.x +0.5f, col.transform.position.y + 0.6f, col.transform.position.z - 0.1f);
+                            }
+                            else
+                            {
+                                blockObject.transform.localScale = new Vector3(1, 1, 1);
+                                blockObject.transform.position = new Vector3(col.transform.position.x-0.5f, col.transform.position.y + 0.6f, col.transform.position.z - 0.1f);
+                            }
+                            blockObject.SetActive(true);
+                        }
                     }
                     else
                     {
