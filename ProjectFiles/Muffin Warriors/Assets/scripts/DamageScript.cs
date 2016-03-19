@@ -16,26 +16,27 @@ public class DamageScript : MonoBehaviour
             {
                 if (!PlayerController.damage) // see if he can take damage or not
                 {
-                    if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f)
+                    if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f && PlayerController.up == false)
                     {
                         PlayerController.block = true;
                         Banner.FadeDuration = 1.0f;
                         tempBanner.text = "block";
+                        transform.root.GetComponent<player1Controler>().GetBlocked = true;
                         Debug.Log("block");
                         GameObject blockObject = blocksparkpool.m_instance1.NewObject();
                         if (blockObject != null)
                         {
-                            
+
                             blockObject.transform.rotation = Quaternion.identity;
                             if (col.transform.root.localScale.x > 0.1f)
                             {
                                 blockObject.transform.localScale = new Vector3(-1, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x +0.5f, col.transform.position.y + 0.6f, col.transform.position.z - 0.1f);
+                                blockObject.transform.position = new Vector3(col.transform.position.x + 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.1f);
                             }
                             else
                             {
                                 blockObject.transform.localScale = new Vector3(1, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x-0.5f, col.transform.position.y + 0.6f, col.transform.position.z - 0.1f);
+                                blockObject.transform.position = new Vector3(col.transform.position.x - 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.1f);
                             }
                             blockObject.SetActive(true);
                         }
@@ -58,6 +59,10 @@ public class DamageScript : MonoBehaviour
                         if (TempRoot.onGround == false && TempRoot.up == false)
                         {
                             PlayerController.InAirAttack = true;
+                        }
+                        else if (TempRoot.onGround == true && TempRoot.crouch == true)
+                        {
+                            PlayerController.CrouchAttack = true;
                         }
                     }
                 }

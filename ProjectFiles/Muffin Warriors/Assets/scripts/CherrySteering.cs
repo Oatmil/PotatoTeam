@@ -27,8 +27,8 @@ public class CherrySteering : MonoBehaviour {
     void Update()
     {
         float TempX = target.transform.position.x - transform.position.x;
-        float TempY = target.transform.position.y - transform.position.y + 1.5f;
-        float TempZ = target.transform.position.z - transform.position.z + 1f;
+        float TempY = target.transform.position.y +1.5f - transform.position.y;
+        float TempZ = target.transform.position.z +1f - transform.position.z;
         attraction = new Vector3(TempX, TempY, TempZ);
 
         velocity = (transform.position - lastPos).normalized;

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class player1Controler : MonoBehaviour
 {
-
+    KnockBackValues m_knockBack;
+    [Tooltip("Controller ID player number")]
     public int PlayerNumber = 1;
     Transform enemy;
 
@@ -15,9 +16,11 @@ public class player1Controler : MonoBehaviour
     float vertical;
     public float maxSpeed = 25; // movesped
     Vector3 movement;
-    bool crouch; // checking of crouch
+
     [HideInInspector]
     public bool up;
+    [HideInInspector]
+    public bool crouch;
 
     public float JumpForce = 20; //force of jump
     public float FlapForce; // force of flap
@@ -35,7 +38,7 @@ public class player1Controler : MonoBehaviour
     float[] attacktimer = new float[2]; // counter before the reset based on the attack rate
     int[] timesPressed = new int[2]; // counting for press of attacks
 
-    public float m_knockBack;
+    //public float m_knockBack;
     public bool damage;
     public bool block;
     public float noDamage = 1;
@@ -46,10 +49,14 @@ public class player1Controler : MonoBehaviour
 
     [HideInInspector]
     public bool InAirAttack = false;
-
+    [HideInInspector]
+    public bool CrouchAttack = false;
+    [HideInInspector]
+    public bool GetBlocked = false;
     // Use this for initialization
     void Start()
     {
+        m_knockBack = GetComponent<KnockBackValues>();
         tempFlapCD = FlapCD;
         rig2D = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -118,6 +125,7 @@ public class player1Controler : MonoBehaviour
             if (!onGround)
             {
                 falling = true;
+                up = false;
             }
 
             if (up)
@@ -142,7 +150,7 @@ public class player1Controler : MonoBehaviour
             RecheckMove();
         }
 
-        Debug.Log(MoveTimer + " " + PlayerNumber);
+        // Debug.Log(MoveTimer + " " + PlayerNumber);
         FlapCD -= Time.deltaTime;
         AttackInput();
         Damage();
@@ -215,6 +223,16 @@ public class player1Controler : MonoBehaviour
 
     void Damage()
     {
+        if (GetBlocked == true)
+        {
+            noDamageTimer += Time.deltaTime;
+            if (noDamageTimer > noDamage)
+            {
+                GetBlocked = false;
+                Vector3 dir = enemy.position - transform.position;
+                rig2D.AddForce(new Vector3(-dir.x * m_knockBack.GetBlocked.x, m_knockBack.GetBlocked.y, m_knockBack.GetBlocked.z));
+            }
+        }
         if (damage)
         {
             CanMove = false;
@@ -226,9 +244,19 @@ public class player1Controler : MonoBehaviour
                 noDamageTimer = 0;
                 if (onGround)
                 {
-                    Vector3 dir = enemy.position - transform.position;
-                    rig2D.AddForce(new Vector3(-dir.x * m_knockBack * 300, 300, 0));
-                    Debug.Log("onground");
+                    if (CrouchAttack == true)
+                    {
+                        Vector3 dir = enemy.position - transform.position;
+                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.CrouchAttack.x, m_knockBack.CrouchAttack.y, m_knockBack.CrouchAttack.z));
+                        Debug.Log("crouch Hit");
+                        CrouchAttack = false;
+                    }
+                    else
+                    {
+                        Vector3 dir = enemy.position - transform.position;
+                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.IdleAttack.x, m_knockBack.IdleAttack.y, m_knockBack.IdleAttack.z));
+                        Debug.Log("onground");
+                    }
                 }
 
                 if (!onGround)
@@ -236,14 +264,14 @@ public class player1Controler : MonoBehaviour
                     if (InAirAttack == true)
                     {
                         Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack * 700, -1000, 0));
+                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
                         Debug.Log("going down");
                         InAirAttack = false;
                     }
                     else
                     {
                         Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack * 300, 200, 0));
+                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.UpAttack.x, m_knockBack.UpAttack.y, m_knockBack.UpAttack.z));
                         Debug.Log("normal Air no more");
                     }
                 }
@@ -257,7 +285,9 @@ public class player1Controler : MonoBehaviour
     {
         if (block)
         {
+            Vector3 dir = enemy.position - transform.position;
             rig2D.velocity = Vector3.zero;
+            rig2D.AddForce(new Vector3(-dir.x * m_knockBack.Block.x, m_knockBack.Block.y, m_knockBack.Block.z));
             noDamageTimer += Time.deltaTime;
             if (noDamageTimer > noblock)
             {
