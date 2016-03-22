@@ -7,4 +7,8 @@ public class ResetButton : MonoBehaviour {
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
