@@ -7,6 +7,7 @@ public class AudioController : MonoBehaviour {
 
     public float[] VolumeIndex;
     AudioSource audio;
+
     void Awake()
     {
         audio = GetComponent<AudioSource>();

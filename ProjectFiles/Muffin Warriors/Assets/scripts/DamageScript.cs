@@ -4,7 +4,9 @@ using System.Collections;
 
 public class DamageScript : MonoBehaviour
 {
-
+    player1Controler PlayerController;
+    Text textBanner;
+    BannerScript Banner;
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.root.tag == "Player")

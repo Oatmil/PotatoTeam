@@ -11,6 +11,14 @@ public class RespawnScript : MonoBehaviour {
 	GameObject[] m_SpawnPointsArray = new GameObject[3];
     GameObject[] m_players;
 
+    public AudioClip m_DeathAudio;
+    AudioSource audio;
+
+    void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
 	void Start()
 	{
 		m_SpawnPointsArray [0] = m_spawnPoint1;
@@ -21,6 +29,7 @@ public class RespawnScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
+        PlayDeathSound();
 		Instantiate (m_DeathBoom, col.transform.root.position, Quaternion.identity);
 		RandomSpawnPoint (col);
         col.transform.GetComponent<player1Controler>().deathCounter += 1;
@@ -52,4 +61,12 @@ public class RespawnScript : MonoBehaviour {
 		col.transform.root.position = m_SpawnPointsArray[RanRan].transform.position;
 	
 	}
+
+
+    void PlayDeathSound()
+    {
+        audio.clip = m_DeathAudio;
+        audio.volume = 1.0f;
+        audio.Play();
+    }
 }

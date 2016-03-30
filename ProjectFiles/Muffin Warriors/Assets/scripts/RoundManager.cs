@@ -13,8 +13,21 @@ public class RoundManager : MonoBehaviour
     public float RoundCountDown;
     public float PreRoundCountDown;
 
+    AudioSource audio;
+    public Image m_StartRoundImage;
+    public Image m_RoundOverImage;
+    public Image m_Player1WinBanner;
+    public Image m_Player2WinBanner;
 
-    // Use this for initialization
+    public AudioClip m_StartRoundAudio;
+    public AudioClip m_Last10Seconds;
+    public AudioClip m_RoundEndAudio;
+    public AudioClip m_CelebrationAudio;
+
+    void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     void Start()
     {
         StartCoroutine(RoundIntro(Time.deltaTime));
@@ -22,7 +35,32 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PreRoundCountDown < 1.4f && MatchStarted == false)
+        {
+            audio.clip = m_StartRoundAudio;
+            m_StartRoundImage.enabled = true;
+            if (audio.isPlaying == false)
+            {
+                audio.Play();
+            }
+        }
+        if (MatchStarted == true)
+        {
+            m_StartRoundImage.enabled = false;
+        }
 
+        if (RoundCountDown <= 10 && RoundCountDown >1.0f)
+        {
+            audio.clip = m_Last10Seconds;
+            if (audio.isPlaying == false)
+            {
+                audio.Play();
+            }
+        }
+        else if (RoundCountDown < 1.0f)
+        {
+           
+        }
     }
 
     IEnumerator RoundIntro(float CurrentTime)
@@ -47,7 +85,13 @@ public class RoundManager : MonoBehaviour
             m_TimerCanvas.text = "timer : \n" + RoundCountDown.ToString("f2");
             yield return null;
         }
-        MatchStarted = false;
+        m_RoundOverImage.enabled = true;
+        audio.clip = m_RoundEndAudio;
+        if (audio.isPlaying == false)
+        {
+            audio.Play();
+        }
+        yield return new WaitForSeconds(3.0f);
         RoundEnd();
     }
 
@@ -68,10 +112,12 @@ public class RoundManager : MonoBehaviour
             if (deaths[j] < deaths[j + 1])
             {
                 m_TimerCanvas.text = "Player " + PlayerNum[j].ToString("f0") + " win";
+                CheckPlayerWinner(PlayerNum[j]);
             }
             else if(deaths[j]>deaths[j+1])
             {
                 m_TimerCanvas.text = "Player " + PlayerNum[j+1].ToString("f0") + " win";
+                CheckPlayerWinner(PlayerNum[j + 1]);
             }
             else
             {
@@ -79,6 +125,21 @@ public class RoundManager : MonoBehaviour
             }
         }
     }
+
+    void CheckPlayerWinner(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            m_Player1WinBanner.enabled = true;
+        }
+        else if (playerNumber == 2)
+        {
+            m_Player2WinBanner.enabled = true;
+        }
+        audio.clip = m_CelebrationAudio;
+        audio.Play();
+    }
+
 
     IEnumerator TurnOnPlayerControls()
     {
