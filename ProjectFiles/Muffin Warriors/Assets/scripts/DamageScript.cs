@@ -32,13 +32,13 @@ public class DamageScript : MonoBehaviour
                             blockObject.transform.rotation = Quaternion.identity;
                             if (col.transform.root.localScale.x > 0.1f)
                             {
-                                blockObject.transform.localScale = new Vector3(-1, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x + 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.1f);
+                                blockObject.transform.localScale = new Vector3(-2, 1, 1);
+                                blockObject.transform.position = new Vector3(col.transform.position.x + 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.5f);
                             }
                             else
                             {
-                                blockObject.transform.localScale = new Vector3(1, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x - 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.1f);
+                                blockObject.transform.localScale = new Vector3(2, 1, 1);
+                                blockObject.transform.position = new Vector3(col.transform.position.x - 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.5f);
                             }
                             blockObject.SetActive(true);
                         }
@@ -53,7 +53,7 @@ public class DamageScript : MonoBehaviour
                         GameObject newObject = hitsparkpool.m_instance.NewObject();
                         if (newObject != null)
                         {
-                            newObject.transform.position = new Vector3(col.transform.position.x, col.transform.position.y + 0.6f, col.transform.position.z);
+                            newObject.transform.position = new Vector3(col.transform.position.x, col.transform.position.y + 0.6f, col.transform.position.z-0.5f);
                             newObject.transform.rotation = Quaternion.identity;
                             newObject.SetActive(true);
                         }

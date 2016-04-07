@@ -53,6 +53,7 @@ public class player1Controler : MonoBehaviour
     public bool CrouchAttack = false;
     [HideInInspector]
     public bool GetBlocked = false;
+
     // Use this for initialization
     void Start()
     {
@@ -180,21 +181,24 @@ public class player1Controler : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack1" + PlayerNumber.ToString()))
         {
-            if (vertical > 0.1f && onGround)// used for the upattack
+            if (CanMove == true)
             {
-                Debug.Log("up attack");
-                if (transform.position.x < enemy.position.x)
+                if (vertical > 0.1f && onGround)// used for the upattack
                 {
-                    rig2D.velocity = (new Vector2(20, JumpForce));
+                    Debug.Log("up attack");
+                    if (transform.position.x < enemy.position.x)
+                    {
+                        rig2D.velocity = (new Vector2(20, JumpForce));
+                    }
+                    else
+                    {
+                        rig2D.velocity = (new Vector2(-1 * 20, JumpForce));
+                    }
                 }
-                else
-                {
-                    rig2D.velocity = (new Vector2(-1 * 20, JumpForce));
-                }
+                attack[0] = true;
+                attacktimer[0] = 0;
+                timesPressed[0]++;
             }
-            attack[0] = true;
-            attacktimer[0] = 0;
-            timesPressed[0]++;
         }
 
         if (attack[0])

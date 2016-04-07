@@ -91,6 +91,7 @@ public class RoundManager : MonoBehaviour
         {
             audio.Play();
         }
+        StartCoroutine(TurnOffPlayerControls());
         yield return new WaitForSeconds(3.0f);
         RoundEnd();
     }
@@ -99,7 +100,7 @@ public class RoundManager : MonoBehaviour
     {
         int[] deaths = new int[2];
         int[] PlayerNum = new int[2];
-        StartCoroutine(TurnOffPlayerControls());
+        
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < players.Length; i++)
@@ -113,11 +114,16 @@ public class RoundManager : MonoBehaviour
             {
                 m_TimerCanvas.text = "Player " + PlayerNum[j].ToString("f0") + " win";
                 CheckPlayerWinner(PlayerNum[j]);
+                players[j].GetComponent<WinLoseAnimationController>().Win = true;
+                players[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
+
             }
             else if(deaths[j]>deaths[j+1])
             {
                 m_TimerCanvas.text = "Player " + PlayerNum[j+1].ToString("f0") + " win";
                 CheckPlayerWinner(PlayerNum[j + 1]);
+                players[j].GetComponent<WinLoseAnimationController>().Lose = true;
+                players[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
             }
             else
             {
