@@ -29,7 +29,7 @@ public class player1Controler : MonoBehaviour
     float jmpForce;
     bool jumpKey; // checking of jump
     bool falling; // cheking of falling
-    // [HideInInspector]
+     [HideInInspector]
     public bool onGround; // checking on ground
     bool allowMovement; // to allow movement
 
@@ -49,7 +49,7 @@ public class player1Controler : MonoBehaviour
 
     [HideInInspector]
     public bool InAirAttack = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool CrouchAttack = false;
     [HideInInspector]
     public bool GetBlocked = false;
@@ -85,7 +85,7 @@ public class player1Controler : MonoBehaviour
 
             Vector3 movement = new Vector3(horizontal, 0, 0);
 
-            if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()))
+            if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
                 if (!jumpKey)
                 {
@@ -138,10 +138,10 @@ public class player1Controler : MonoBehaviour
             {
                 rig2D.AddForce(movement * maxSpeed);
             }
-            else
-            {
-                rig2D.velocity = Vector3.zero;
-            }
+            //else
+            //{
+            //    rig2D.velocity = Vector3.zero;
+            //}
             ScaleCheck();
         }
 
@@ -253,7 +253,12 @@ public class player1Controler : MonoBehaviour
                         Vector3 dir = enemy.position - transform.position;
                         rig2D.AddForce(new Vector3(-dir.x * m_knockBack.CrouchAttack.x, m_knockBack.CrouchAttack.y, m_knockBack.CrouchAttack.z));
                         Debug.Log("crouch Hit");
-                        CrouchAttack = false;
+                    }
+                    else if (InAirAttack == true)
+                    {
+                        Vector3 dir = enemy.position - transform.position;
+                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
+                        Debug.Log("hit by air");
                     }
                     else
                     {
@@ -261,6 +266,8 @@ public class player1Controler : MonoBehaviour
                         rig2D.AddForce(new Vector3(-dir.x * m_knockBack.IdleAttack.x, m_knockBack.IdleAttack.y, m_knockBack.IdleAttack.z));
                         Debug.Log("onground");
                     }
+                    CrouchAttack = false;
+                    InAirAttack = false;
                 }
 
                 if (!onGround)
@@ -269,8 +276,7 @@ public class player1Controler : MonoBehaviour
                     {
                         Vector3 dir = enemy.position - transform.position;
                         rig2D.AddForce(new Vector3(-dir.x * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
-                        Debug.Log("going down");
-                        InAirAttack = false;
+                        Debug.Log("hit by air");
                     }
                     else
                     {
@@ -278,6 +284,8 @@ public class player1Controler : MonoBehaviour
                         rig2D.AddForce(new Vector3(-dir.x * m_knockBack.UpAttack.x, m_knockBack.UpAttack.y, m_knockBack.UpAttack.z));
                         Debug.Log("normal Air no more");
                     }
+                    CrouchAttack = false;
+                    InAirAttack = false;
                 }
                 CanMove = true;
             }

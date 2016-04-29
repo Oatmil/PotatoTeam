@@ -5,28 +5,33 @@ public class CameraScript : MonoBehaviour {
 
     public float heightAdjusment;
     public float depthAdjustment;
+    public float minimumDepth;
 
 	GameObject[] players = new GameObject[2];
-	Vector3 TarPosition;
+	Vector3[] TarPosition = new Vector3[2];
     float Distance;
+    Vector3 MidPoint;
+
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
-
-		for (int i = 0; i < players.Length; i++) {
-			TarPosition += players [i].transform.position;
-		}
-		transform.position = TarPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 		for (int i = 0; i < players.Length; i++) {
-			TarPosition += players [i].transform.position;
+			TarPosition[i] = players [i].transform.position;
 		}
-        Distance = Vector2.Distance(players[0].transform.position, players[1].transform.position);
-		transform.position = Vector3.Lerp (transform.position,TarPosition / players.Length,0.1f);
-        TarPosition = new Vector3(0.0f, 2.8f + heightAdjusment, depthAdjustment - Distance * 1.5f);
+        Distance = Vector2.Distance(TarPosition[0], TarPosition[1]);
+        if (-Distance > minimumDepth)
+        {
+            MidPoint = new Vector3((TarPosition[0].x + TarPosition[1].x) / 2, heightAdjusment + (TarPosition[0].y + TarPosition[1].y)/2, minimumDepth);
+        }
+        else
+        {
+            MidPoint = new Vector3((TarPosition[0].x + TarPosition[1].x) / 2, heightAdjusment + (TarPosition[0].y + TarPosition[1].y)/2, -Distance);
+        }
+        transform.position = Vector3.Lerp(transform.position, MidPoint, 0.05f);
 	}
 }
