@@ -18,7 +18,7 @@ public class DamageScript : MonoBehaviour
             {
                 if (!PlayerController.damage) // see if he can take damage or not
                 {
-                    if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f && PlayerController.up == false)
+                    if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f && PlayerController.up == false && PlayerController.blockCharge > 0)
                     {
                         PlayerController.block = true;
                         Banner.FadeDuration = 1.0f;

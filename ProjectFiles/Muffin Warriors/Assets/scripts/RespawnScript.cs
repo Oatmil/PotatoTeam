@@ -59,7 +59,7 @@ public class RespawnScript : MonoBehaviour {
 	{
 		int RanRan = Random.Range (0, m_SpawnPointsArray.Length);
 		col.transform.root.position = m_SpawnPointsArray[RanRan].transform.position;
-	
+	    col.transform.root.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,0,0);
 	}
 
 

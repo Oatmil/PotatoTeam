@@ -14,7 +14,7 @@ public class player1Controler : MonoBehaviour
     [HideInInspector]
     public float horizontal;
     float vertical;
-    public float maxSpeed = 25; // movesped
+    public float maxSpeed = 25; /// determines the movementspeed
     Vector3 movement;
 
     [HideInInspector]
@@ -22,21 +22,25 @@ public class player1Controler : MonoBehaviour
     [HideInInspector]
     public bool crouch;
 
-    public float JumpForce = 20; //force of jump
-    public float FlapForce; // force of flap
-    public float FlapCD; // cool down forFlapping
+    public int MaxBlockingCharge; /// determines how many charges the characters have
+    [HideInInspector]
+    public int blockCharge; 
+    public float BlockingRechargeTimer; ///Timetaken to recharge the blocking
+    public float JumpForce = 20; ///force of jump
+    public float FlapForce; /// force of flap
+    public float FlapCD; /// cool down forFlapping
     float tempFlapCD;
     float jmpForce;
-    bool jumpKey; // checking of jump
-    bool falling; // cheking of falling
+    bool jumpKey; /// checking of jump
+    bool falling; /// cheking of falling
      [HideInInspector]
-    public bool onGround; // checking on ground
-    bool allowMovement; // to allow movement
+    public bool onGround; /// checking on ground
+    bool allowMovement; /// to allow movement
 
-    public float attackRate = 0.3f; // duration of checking of attack before setting bool to false
-    bool[] attack = new bool[2]; // cheking for as many attacks as i want just increase the array size
-    float[] attacktimer = new float[2]; // counter before the reset based on the attack rate
-    int[] timesPressed = new int[2]; // counting for press of attacks
+    public float attackRate = 0.3f; /// duration of checking of attack before setting bool to false
+    bool[] attack = new bool[2]; /// cheking for as many attacks as i want just increase the array size
+    float[] attacktimer = new float[2]; /// counter before the reset based on the attack rate
+    int[] timesPressed = new int[2]; /// counting for press of attacks
 
     //public float m_knockBack;
     public bool damage;
@@ -46,6 +50,7 @@ public class player1Controler : MonoBehaviour
     public float noblock;
     public bool CanMove = false;
     float MoveTimer = 0;
+    float blockTimer = 0;
 
     [HideInInspector]
     public bool InAirAttack = false;
@@ -57,6 +62,7 @@ public class player1Controler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        blockCharge = MaxBlockingCharge;
         m_knockBack = GetComponent<KnockBackValues>();
         tempFlapCD = FlapCD;
         rig2D = GetComponent<Rigidbody2D>();
@@ -157,7 +163,7 @@ public class player1Controler : MonoBehaviour
         Damage();
         Block();
         UpdateAnimator();
-
+        BlockingRecharge();
     }
 
     void RecheckMove()
@@ -181,8 +187,6 @@ public class player1Controler : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack1" + PlayerNumber.ToString()))
         {
-            if (CanMove == true)
-            {
                 if (vertical > 0.1f && onGround)// used for the upattack
                 {
                     Debug.Log("up attack");
@@ -198,31 +202,35 @@ public class player1Controler : MonoBehaviour
                 attack[0] = true;
                 attacktimer[0] = 0;
                 timesPressed[0]++;
-            }
         }
 
         if (attack[0])
         {
             attacktimer[0] += Time.deltaTime;
-            if (attacktimer[0] > attackRate || timesPressed[0] >= 4)
+            anim.SetInteger("AttackInt", timesPressed[0]);
+
+            if (attacktimer[0] > attackRate /*&& timesPressed[0] == 3*/)
             {
+                Debug.Log("UndoAtack");
                 attacktimer[0] = 0;
                 attack[0] = false;
                 timesPressed[0] = 0;
+                anim.SetInteger("AttackInt", timesPressed[0]);
+
             }
         }
 
 
-        if (attack[1])
-        {
-            attacktimer[1] += Time.deltaTime;
-            if (attacktimer[1] > attackRate || timesPressed[1] >= 4)
-            {
-                attacktimer[1] = 0;
-                attack[1] = false;
-                timesPressed[1] = 0;
-            }
-        }
+        //if (attack[1])
+        //{
+        //    attacktimer[1] += Time.deltaTime;
+        //    if (attacktimer[1] > attackRate || timesPressed[1] >= 4)
+        //    {
+        //        attacktimer[1] = 0;
+        //        attack[1] = false;
+        //        timesPressed[1] = 0;
+        //    }
+        //}
     }
 
     void Damage()
@@ -295,7 +303,7 @@ public class player1Controler : MonoBehaviour
 
     void Block()
     {
-        if (block)
+        if (block && blockCharge > 0)
         {
             Vector3 dir = enemy.position - transform.position;
             rig2D.velocity = Vector3.zero;
@@ -305,11 +313,23 @@ public class player1Controler : MonoBehaviour
             {
                 block = false;
                 noDamageTimer = 0;
-
+                blockCharge--;
             }
         }
     }
 
+    void BlockingRecharge()
+    {
+        if (blockCharge < MaxBlockingCharge)
+        {
+            blockTimer += Time.deltaTime;
+            if (blockTimer >= BlockingRechargeTimer)
+            {
+                blockCharge++;
+                blockTimer = 0;
+            }
+        }
+    }
 
     void UpdateAnimator()
     {
@@ -323,6 +343,7 @@ public class player1Controler : MonoBehaviour
             CanMove = false;
         anim.SetBool("Attack1", attack[0]);
         anim.SetBool("Blocking", block);
+        //anim.SetInteger("AttackInt", timesPressed[0]);
     }
 
     void OnCollisionStay2D(Collision2D col)

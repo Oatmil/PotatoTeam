@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: 804f759aca167114cb15b07d3f075f85
+timeCreated: 1462977909
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: zombie muffin attack 565x500_0
+    21300002: zombie muffin attack 565x500_1
+    21300004: zombie muffin attack 565x500_2
+    21300006: zombie muffin attack 565x500_3
+    21300008: zombie muffin attack 565x500_4
+    21300010: zombie muffin attack 565x500_5
+    21300012: zombie muffin attack 565x500_6
+    21300014: zombie muffin attack 565x500_7
+    21300016: zombie muffin attack 565x500_8
+    21300018: zombie muffin attack 565x500_9
+    21300020: zombie muffin attack 565x500_10
+    21300022: zombie muffin attack 565x500_11
+    21300024: zombie muffin attack 565x500_12
+    21300026: zombie muffin attack 565x500_13
+    21300028: zombie muffin attack 565x500_14
+    21300030: zombie muffin attack 565x500_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: zombie muffin attack 565x500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.975746, y: 158.52502}
+        - {x: -48.024254, y: 158.52502}
+        - {x: -89.024254, y: 119.525024}
+        - {x: -89.024254, y: 0.5250244}
+        - {x: -88.024254, y: -2.4749756}
+        - {x: -44.024254, y: -10.474976}
+        - {x: 55.975746, y: -10.474976}
+        - {x: 97.975746, y: -2.4749756}
+        - {x: 97.975746, y: 51.525024}
+        - {x: 90.975746, y: 134.52502}
+    - name: zombie muffin attack 565x500_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50.47574, y: 158.52502}
+        - {x: -34.52426, y: 158.52502}
+        - {x: -88.52426, y: 129.52502}
+        - {x: -88.52426, y: -9.474976}
+        - {x: -86.52426, y: -10.474976}
+        - {x: 87.47574, y: -10.474976}
+        - {x: 99.47574, y: -7.4749756}
+        - {x: 99.47574, y: 10.525024}
+        - {x: 83.47574, y: 26.525024}
+        - {x: 99.47574, y: 97.525024}
+        - {x: 99.47574, y: 129.52502}
+    - name: zombie muffin attack 565x500_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 125.97577, y: 42.525024}
+        - {x: 125.97577, y: 161.52502}
+        - {x: 101.97577, y: 163.52502}
+        - {x: 57.97577, y: 163.52502}
+        - {x: 53.97577, y: 162.52502}
+        - {x: 50.97577, y: 163.52502}
+        - {x: -89.02423, y: 163.52502}
+        - {x: -89.02423, y: -10.474976}
+        - {x: 64.97577, y: -10.474976}
+        - {x: 103.97577, y: -1.4749756}
+        - {x: 97.97577, y: 2.5250244}
+        - {x: 51.97577, y: 2.5250244}
+        - {x: 53.97577, y: 2.5250244}
+    - name: zombie muffin attack 565x500_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98.975746, y: 29.525024}
+        - {x: 98.975746, y: 121.525024}
+        - {x: 61.975746, y: 156.52502}
+        - {x: -89.024254, y: 156.52502}
+        - {x: -89.024254, y: -10.474976}
+        - {x: 64.975746, y: -10.474976}
+        - {x: 98.975746, y: -2.4749756}
+        - {x: 98.975746, y: 1.5250244}
+        - {x: 97.975746, y: 2.5250244}
+        - {x: 51.975746, y: 2.5250244}
+        - {x: 53.975746, y: 2.5250244}
+    - name: zombie muffin attack 565x500_4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88.47574, y: 90.525024}
+        - {x: 84.47574, y: 156.52502}
+        - {x: -88.52426, y: 156.52502}
+        - {x: -88.52426, y: -10.474976}
+        - {x: 49.47574, y: -10.474976}
+        - {x: 99.47574, y: -2.4749756}
+        - {x: 99.47574, y: 1.5250244}
+        - {x: 98.47574, y: 2.5250244}
+        - {x: 52.47574, y: 2.5250244}
+        - {x: 61.47574, y: 2.5250244}
+    - name: zombie muffin attack 565x500_5
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50.97577, y: 2.5250244}
+        - {x: 52.97577, y: 2.5250244}
+        - {x: 59.97577, y: 4.5250244}
+        - {x: 95.97577, y: 136.52502}
+        - {x: 46.97577, y: 156.52502}
+        - {x: -74.02423, y: 156.52502}
+        - {x: -89.02423, y: 138.52502}
+        - {x: -89.02423, y: -10.474976}
+        - {x: 68.97577, y: -10.474976}
+        - {x: 97.97577, y: -2.4749756}
+        - {x: 97.97577, y: 1.5250244}
+        - {x: 96.97577, y: 2.5250244}
+    - name: zombie muffin attack 565x500_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.024254, y: 158.52502}
+        - {x: -89.024254, y: 107.525024}
+        - {x: -89.024254, y: -1.4749756}
+        - {x: -43.024254, y: -8.474976}
+        - {x: 97.975746, y: -8.474976}
+        - {x: 97.975746, y: 124.525024}
+        - {x: 96.975746, y: 130.52502}
+        - {x: 13.975746, y: 158.52502}
+    - name: zombie muffin attack 565x500_7
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88.52426, y: -2.4749756}
+        - {x: -49.52426, y: -8.474976}
+        - {x: 49.47574, y: -8.474976}
+        - {x: 99.47574, y: -0.4749756}
+        - {x: 99.47574, y: 40.525024}
+        - {x: 91.47574, y: 106.525024}
+        - {x: 56.47574, y: 158.52502}
+        - {x: -38.52426, y: 158.52502}
+        - {x: -88.52426, y: 136.52502}
+    - name: zombie muffin attack 565x500_8
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.02423, y: 156.52502}
+        - {x: -89.02423, y: 105.525024}
+        - {x: -89.02423, y: -3.4749756}
+        - {x: -28.024231, y: -11.474976}
+        - {x: 29.975769, y: -11.474976}
+        - {x: 98.97577, y: -3.4749756}
+        - {x: 98.97577, y: 115.525024}
+        - {x: 23.975769, y: 156.52502}
+    - name: zombie muffin attack 565x500_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 133.97574, y: 76.525024}
+        - {x: 133.97574, y: 104.525024}
+        - {x: 119.975746, y: 123.525024}
+        - {x: 20.975746, y: 156.52502}
+        - {x: -36.024254, y: 156.52502}
+        - {x: -89.024254, y: 108.525024}
+        - {x: -89.024254, y: -3.4749756}
+        - {x: -50.024254, y: -10.474976}
+        - {x: 48.975746, y: -10.474976}
+        - {x: 103.975746, y: -1.4749756}
+        - {x: 97.975746, y: 2.5250244}
+        - {x: 51.975746, y: 2.5250244}
+        - {x: 53.975746, y: 2.5250244}
+    - name: zombie muffin attack 565x500_10
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64.52426, y: 158.52502}
+        - {x: -88.52426, y: 117.525024}
+        - {x: -88.52426, y: -9.474976}
+        - {x: -86.52426, y: -10.474976}
+        - {x: 94.47574, y: -10.474976}
+        - {x: 106.47574, y: -7.4749756}
+        - {x: 106.47574, y: 113.525024}
+        - {x: 30.475739, y: 158.52502}
+    - name: zombie muffin attack 565x500_11
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.024231, y: 158.52502}
+        - {x: -73.02423, y: 129.52502}
+        - {x: -89.02423, y: 106.525024}
+        - {x: -89.02423, y: -3.4749756}
+        - {x: -28.024231, y: -11.474976}
+        - {x: 29.975769, y: -11.474976}
+        - {x: 98.97577, y: -3.4749756}
+        - {x: 98.97577, y: 109.525024}
+        - {x: 42.97577, y: 158.52502}
+    - name: zombie muffin attack 565x500_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -89.024254, y: 82.525024}
+        - {x: -47.024254, y: 5.5250244}
+        - {x: -43.024254, y: 3.5250244}
+        - {x: -39.024254, y: 2.5250244}
+        - {x: -89.024254, y: 3.5250244}
+        - {x: -89.024254, y: -3.4749756}
+        - {x: -66.024254, y: -10.474976}
+        - {x: 87.975746, y: -10.474976}
+        - {x: 98.975746, y: -7.4749756}
+        - {x: 98.975746, y: 90.525024}
+        - {x: 92.975746, y: 126.525024}
+        - {x: 22.975746, y: 158.52502}
+        - {x: -44.024254, y: 158.52502}
+        - {x: -89.024254, y: 113.525024}
+    - name: zombie muffin attack 565x500_13
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -98.52426, y: 63.525024}
+        - {x: -44.52426, y: 6.5250244}
+        - {x: -41.52426, y: 3.5250244}
+        - {x: -86.52426, y: 2.5250244}
+        - {x: -88.52426, y: 0.5250244}
+        - {x: -91.52426, y: -3.4749756}
+        - {x: -27.524261, y: -11.474976}
+        - {x: 99.47574, y: -11.474976}
+        - {x: 99.47574, y: 93.525024}
+        - {x: 73.47574, y: 161.52502}
+        - {x: -64.52426, y: 161.52502}
+        - {x: -98.52426, y: 91.525024}
+      - - {x: 60.47574, y: 76.525024}
+        - {x: 62.47574, y: 74.525024}
+        - {x: 65.47574, y: 75.525024}
+        - {x: 65.47574, y: 78.525024}
+        - {x: 63.47574, y: 80.525024}
+        - {x: 60.47574, y: 79.525024}
+    - name: zombie muffin attack 565x500_14
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97.97577, y: 95.525024}
+        - {x: 97.97577, y: 105.525024}
+        - {x: 90.97577, y: 146.52502}
+        - {x: 71.97577, y: 161.52502}
+        - {x: -57.02423, y: 161.52502}
+        - {x: -112.02423, y: 104.525024}
+        - {x: -112.02423, y: -4.4749756}
+        - {x: -110.02423, y: -10.474976}
+        - {x: 72.97577, y: -10.474976}
+        - {x: 97.97577, y: -6.4749756}
+        - {x: 97.97577, y: 1.5250244}
+        - {x: 60.97577, y: 13.525024}
+    - name: zombie muffin attack 565x500_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4169, y: 0.0539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -90.024254, y: 68.525024}
+        - {x: -82.024254, y: 60.525024}
+        - {x: -90.024254, y: 29.525024}
+        - {x: -90.024254, y: -1.4749756}
+        - {x: -58.024254, y: -10.474976}
+        - {x: 90.975746, y: -10.474976}
+        - {x: 98.975746, y: -9.474976}
+        - {x: 98.975746, y: 140.52502}
+        - {x: 97.975746, y: 146.52502}
+        - {x: 60.975746, y: 162.52502}
+        - {x: -47.024254, y: 162.52502}
+        - {x: -90.024254, y: 132.52502}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

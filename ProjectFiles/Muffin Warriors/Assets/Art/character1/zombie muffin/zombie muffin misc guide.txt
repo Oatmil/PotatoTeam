@@ -1,0 +1,8 @@
+1st sprite - look up
+2nd sprite - look down
+3rd sprite - guard
+4th sprite - hurt 1
+5th sprite - hurt 2
+
+not sure whether which hurt sprite fits either air or ground so ill let u guys decide
+if u want me to change the outlook lemme know the idea ^^

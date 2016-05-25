@@ -1,0 +1,397 @@
+fileFormatVersion: 2
+guid: 75139930c7abc5e4dbd96e1284c78a68
+timeCreated: 1462978282
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: zombie muffin idle 565x500_0
+    21300002: zombie muffin idle 565x500_1
+    21300004: zombie muffin idle 565x500_2
+    21300006: zombie muffin idle 565x500_3
+    21300008: zombie muffin idle 565x500_4
+    21300010: zombie muffin idle 565x500_5
+    21300012: zombie muffin idle 565x500_6
+    21300014: zombie muffin idle 565x500_7
+    21300016: zombie muffin idle 565x500_8
+    21300018: zombie muffin idle 565x500_9
+    21300020: zombie muffin idle 565x500_10
+    21300022: zombie muffin idle 565x500_11
+    21300024: zombie muffin idle 565x500_12
+    21300026: zombie muffin idle 565x500_13
+    21300028: zombie muffin idle 565x500_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: zombie muffin idle 565x500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.393997, y: 153.125}
+        - {x: -41.606003, y: 153.125}
+        - {x: -74.606, y: 131.125}
+        - {x: -97.606, y: 114.125}
+        - {x: -97.606, y: 53.125}
+        - {x: -70.606, y: -7.875}
+        - {x: 88.394, y: -7.875}
+        - {x: 88.394, y: 109.125}
+        - {x: 79.394, y: 133.125}
+    - name: zombie muffin idle 565x500_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -69.10602, y: 156.125}
+        - {x: -92.10602, y: 131.125}
+        - {x: -96.10602, y: 116.125}
+        - {x: -96.10602, y: 47.125}
+        - {x: -67.10602, y: -7.875}
+        - {x: 44.893982, y: -7.875}
+        - {x: 88.89398, y: -3.875}
+        - {x: 88.89398, y: 126.125}
+        - {x: 40.893982, y: 156.125}
+    - name: zombie muffin idle 565x500_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.393982, y: 160.125}
+        - {x: -31.606018, y: 160.125}
+        - {x: -97.60602, y: 116.125}
+        - {x: -97.60602, y: 65.125}
+        - {x: -70.60602, y: -6.875}
+        - {x: -40.606018, y: -7.875}
+        - {x: 89.39398, y: -7.875}
+        - {x: 89.39398, y: 118.125}
+        - {x: 22.393982, y: 157.125}
+    - name: zombie muffin idle 565x500_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.393997, y: 163.125}
+        - {x: -42.606003, y: 163.125}
+        - {x: -97.606, y: 132.125}
+        - {x: -97.606, y: 66.125}
+        - {x: -79.606, y: 0.125}
+        - {x: -51.606003, y: -7.875}
+        - {x: 77.394, y: -7.875}
+        - {x: 88.394, y: -5.875}
+        - {x: 88.394, y: 120.125}
+        - {x: 66.394, y: 157.125}
+    - name: zombie muffin idle 565x500_4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.893982, y: 166.125}
+        - {x: -44.106018, y: 166.125}
+        - {x: -96.10602, y: 128.125}
+        - {x: -96.10602, y: 65.125}
+        - {x: -65.10602, y: -7.875}
+        - {x: 22.893982, y: -7.875}
+        - {x: 78.89398, y: -0.875}
+        - {x: 88.89398, y: 63.125}
+        - {x: 88.89398, y: 122.125}
+    - name: zombie muffin idle 565x500_5
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.393982, y: 168.125}
+        - {x: 2.393982, y: 170.125}
+        - {x: -31.606018, y: 170.125}
+        - {x: -97.60602, y: 124.125}
+        - {x: -97.60602, y: 69.125}
+        - {x: -73.60602, y: -6.875}
+        - {x: -61.606018, y: -7.875}
+        - {x: 89.39398, y: -7.875}
+        - {x: 89.39398, y: 123.125}
+        - {x: 68.39398, y: 139.125}
+    - name: zombie muffin idle 565x500_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45.606003, y: 173.125}
+        - {x: -97.606, y: 124.125}
+        - {x: -97.606, y: 86.125}
+        - {x: -94.606, y: 80.125}
+        - {x: -76.606, y: 2.125}
+        - {x: -62.606003, y: -1.875}
+        - {x: -16.606003, y: -7.875}
+        - {x: 31.393997, y: -7.875}
+        - {x: 88.394, y: -3.875}
+        - {x: 88.394, y: 150.125}
+        - {x: 77.394, y: 173.125}
+    - name: zombie muffin idle 565x500_7
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88.10602, y: 176.125}
+        - {x: -96.10602, y: 153.125}
+        - {x: -96.10602, y: 46.125}
+        - {x: -67.10602, y: 2.125}
+        - {x: -61.106018, y: -1.875}
+        - {x: -15.106018, y: -7.875}
+        - {x: 38.893982, y: -7.875}
+        - {x: 71.89398, y: -5.875}
+        - {x: 89.89398, y: 47.125}
+        - {x: 89.89398, y: 147.125}
+        - {x: 75.89398, y: 176.125}
+    - name: zombie muffin idle 565x500_8
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88.39398, y: 136.125}
+        - {x: 16.393982, y: 173.125}
+        - {x: -54.606018, y: 173.125}
+        - {x: -97.60602, y: 132.125}
+        - {x: -97.60602, y: 54.125}
+        - {x: -81.60602, y: 3.125}
+        - {x: -47.606018, y: -7.875}
+        - {x: 49.393982, y: -7.875}
+        - {x: 68.39398, y: -1.875}
+        - {x: 70.39398, y: 0.125}
+        - {x: 69.39398, y: 3.125}
+        - {x: 88.39398, y: 81.125}
+    - name: zombie muffin idle 565x500_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.606003, y: 170.125}
+        - {x: -92.606, y: 125.125}
+        - {x: -97.606, y: 117.125}
+        - {x: -97.606, y: 64.125}
+        - {x: -63.606003, y: -4.875}
+        - {x: -26.606003, y: -7.875}
+        - {x: 32.393997, y: -7.875}
+        - {x: 84.394, y: -4.875}
+        - {x: 88.394, y: 45.125}
+        - {x: 88.394, y: 137.125}
+        - {x: 16.393997, y: 170.125}
+    - name: zombie muffin idle 565x500_10
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88.89398, y: 31.125}
+        - {x: 88.89398, y: 137.125}
+        - {x: 21.893982, y: 166.125}
+        - {x: -59.106018, y: 166.125}
+        - {x: -94.10602, y: 138.125}
+        - {x: -96.10602, y: 126.125}
+        - {x: -96.10602, y: 51.125}
+        - {x: -66.10602, y: -1.875}
+        - {x: -14.106018, y: -6.875}
+        - {x: 34.893982, y: -6.875}
+        - {x: 43.893982, y: -5.875}
+        - {x: 82.89398, y: -4.875}
+    - name: zombie muffin idle 565x500_11
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 2096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82.39398, y: 140.125}
+        - {x: 10.393982, y: 163.125}
+        - {x: -41.606018, y: 163.125}
+        - {x: -97.60602, y: 122.125}
+        - {x: -97.60602, y: 70.125}
+        - {x: -63.606018, y: -4.875}
+        - {x: -34.606018, y: -7.875}
+        - {x: 58.393982, y: -7.875}
+        - {x: 76.39398, y: 0.125}
+        - {x: 88.39398, y: 31.125}
+        - {x: 88.39398, y: 122.125}
+    - name: zombie muffin idle 565x500_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.606003, y: 160.125}
+        - {x: -97.606, y: 112.125}
+        - {x: -97.606, y: 72.125}
+        - {x: -67.606, y: -7.875}
+        - {x: 47.393997, y: -7.875}
+        - {x: 82.394, y: -1.875}
+        - {x: 88.394, y: 10.125}
+        - {x: 88.394, y: 128.125}
+        - {x: 58.393997, y: 160.125}
+    - name: zombie muffin idle 565x500_13
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88.89398, y: 43.125}
+        - {x: 88.89398, y: 119.125}
+        - {x: 42.893982, y: 158.125}
+        - {x: -54.106018, y: 158.125}
+        - {x: -96.10602, y: 138.125}
+        - {x: -96.10602, y: -5.875}
+        - {x: 70.89398, y: -5.875}
+        - {x: 88.89398, y: -1.875}
+        - {x: 88.89398, y: 5.125}
+        - {x: 76.89398, y: 19.125}
+    - name: zombie muffin idle 565x500_14
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4048, y: 0.0595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.606018, y: 153.125}
+        - {x: -95.60602, y: 108.125}
+        - {x: -97.60602, y: 98.125}
+        - {x: -97.60602, y: 79.125}
+        - {x: -94.60602, y: 74.125}
+        - {x: -85.60602, y: 65.125}
+        - {x: -78.60602, y: 60.125}
+        - {x: -57.606018, y: 12.125}
+        - {x: -54.606018, y: 8.125}
+        - {x: -62.606018, y: 4.125}
+        - {x: -66.60602, y: -2.875}
+        - {x: -16.606018, y: -7.875}
+        - {x: 2.393982, y: -7.875}
+        - {x: 9.393982, y: -3.875}
+        - {x: 88.39398, y: -3.875}
+        - {x: 88.39398, y: 124.125}
+        - {x: 31.393982, y: 153.125}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
