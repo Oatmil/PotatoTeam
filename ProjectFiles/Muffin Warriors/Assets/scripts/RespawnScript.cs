@@ -34,26 +34,25 @@ public class RespawnScript : MonoBehaviour {
 		RandomSpawnPoint (col);
         col.transform.GetComponent<player1Controler>().deathCounter += 1;
 
-        findPlayer(col);
 	}
 
-    void findPlayer(Collider2D col)
-    {
-        for (int i = 0; i < m_players.Length; i++)
-        {
-            if (m_players[i].transform.position !=col.transform.position)
-            {
-                GameObject newObject = cherrypool.m_instance.NewObject();
-                if (newObject != null)
-                {
-                    newObject.transform.position = new Vector3(m_players[i].transform.position.x, m_players[i].transform.position.y + 0.6f, m_players[i].transform.position.z);
-                    newObject.transform.rotation = Quaternion.identity;
-                    newObject.GetComponent<CherrySteering>().target = m_players[i];
-                    newObject.SetActive(true);
-                }
-            }
-        }
-    }
+    //void findPlayer(Collider2D col)
+    //{
+    //    for (int i = 0; i < m_players.Length; i++)
+    //    {
+    //        if (m_players[i].transform.position !=col.transform.position)
+    //        {
+    //            GameObject newObject = cherrypool.m_instance.NewObject();
+    //            if (newObject != null)
+    //            {
+    //                newObject.transform.position = new Vector3(m_players[i].transform.position.x, m_players[i].transform.position.y + 0.6f, m_players[i].transform.position.z);
+    //                newObject.transform.rotation = Quaternion.identity;
+    //                newObject.GetComponent<CherrySteering>().target = m_players[i];
+    //                newObject.SetActive(true);
+    //            }
+    //        }
+    //    }
+    //}
 
     void RandomSpawnPoint(Collider2D col)
 	{

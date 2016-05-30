@@ -8,10 +8,18 @@ public class RoundManager : MonoBehaviour
 
     public Text m_TimerCanvas;
 
+    GameObject[] PlayersList = new GameObject[2];
+    Vector3 Player1Pos;
+    Vector3 Player2Pos;
+    public int Player1Score;
+    public int Player2Score;
+
+    public int RoundCounter ;
     public bool MatchStarted = false;
-    float time;
     public float RoundCountDown;
     public float PreRoundCountDown;
+    float tempRound;
+    float tempPreRound;
 
     AudioSource audio;
     public Image m_StartRoundImage;
@@ -30,6 +38,25 @@ public class RoundManager : MonoBehaviour
     }
     void Start()
     {
+        tempPreRound = PreRoundCountDown;
+        tempRound = RoundCountDown;
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject temp = GameObject.FindGameObjectWithTag("Player");
+            {
+                if(temp.GetComponent<player1Controler>().PlayerNumber == 1)
+                {
+                    PlayersList[1] = temp;
+                    Player1Pos = PlayersList[1].transform.position;
+                }
+                else if (temp.GetComponent<player1Controler>().PlayerNumber == 2)
+                {
+                    PlayersList[2] = temp;
+                    Player2Pos = PlayersList[2].transform.position;
+
+                }
+            }
+        }
         StartCoroutine(RoundIntro(Time.deltaTime));
     }
     // Update is called once per frame
@@ -69,10 +96,11 @@ public class RoundManager : MonoBehaviour
         {
             StartCoroutine(TurnOffPlayerControls());
             PreRoundCountDown -= CurrentTime;
-            m_TimerCanvas.text = "Starting In \n" + PreRoundCountDown.ToString("f2");
+            m_TimerCanvas.text = "Round " + (RoundCounter + 1).ToString()+ "\n Starting in \n" +PreRoundCountDown.ToString("f2");
             yield return null;
         }
         MatchStarted = true;
+        RoundCounter += 1;
         StartCoroutine(RoundRunning(CurrentTime));
     }
 
@@ -92,15 +120,27 @@ public class RoundManager : MonoBehaviour
             audio.Play();
         }
         StartCoroutine(TurnOffPlayerControls());
+
+        m_TimerCanvas.text = "The \n Results \n Are \n In";
         yield return new WaitForSeconds(3.0f);
         RoundEnd();
+        yield return new WaitForSeconds(5.0f);
+        if (RoundCounter < 3)
+        {
+            RoundCountDown = tempRound;
+            PreRoundCountDown = tempPreRound;
+            MatchStarted = false;
+            m_RoundOverImage.enabled = false;
+            m_Player1WinBanner.enabled = false;
+            m_Player2WinBanner.enabled = false;
+            StartCoroutine(RoundIntro(CurrentTime));
+        }
     }
 
     void RoundEnd()
     {
         int[] deaths = new int[2];
         int[] PlayerNum = new int[2];
-        
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < players.Length; i++)
@@ -112,7 +152,7 @@ public class RoundManager : MonoBehaviour
         {
             if (deaths[j] < deaths[j + 1])
             {
-                m_TimerCanvas.text = "Player " + PlayerNum[j].ToString("f0") + " win";
+                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Winner Is "+"Player " + PlayerNum[j].ToString("f0");
                 CheckPlayerWinner(PlayerNum[j]);
                 players[j].GetComponent<WinLoseAnimationController>().Win = true;
                 players[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
@@ -120,7 +160,7 @@ public class RoundManager : MonoBehaviour
             }
             else if(deaths[j]>deaths[j+1])
             {
-                m_TimerCanvas.text = "Player " + PlayerNum[j+1].ToString("f0") + " win";
+                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Winner Is "+"Player " + PlayerNum[j + 1].ToString("f0");
                 CheckPlayerWinner(PlayerNum[j + 1]);
                 players[j].GetComponent<WinLoseAnimationController>().Lose = true;
                 players[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
