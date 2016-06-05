@@ -40,7 +40,8 @@ public class player1Controler : MonoBehaviour
     public float attackRate = 0.3f; /// duration of checking of attack before setting bool to false
     bool[] attack = new bool[2]; /// cheking for as many attacks as i want just increase the array size
     float[] attacktimer = new float[2]; /// counter before the reset based on the attack rate
-    int[] timesPressed = new int[2]; /// counting for press of attacks
+    [HideInInspector]
+    public int[] timesPressed = new int[2]; /// counting for press of attacks
 
     //public float m_knockBack;
     public bool damage;
@@ -207,7 +208,6 @@ public class player1Controler : MonoBehaviour
         if (attack[0])
         {
             attacktimer[0] += Time.deltaTime;
-            anim.SetInteger("AttackInt", timesPressed[0]);
 
             if (attacktimer[0] > attackRate /*&& timesPressed[0] == 3*/)
             {
@@ -215,7 +215,6 @@ public class player1Controler : MonoBehaviour
                 attacktimer[0] = 0;
                 attack[0] = false;
                 timesPressed[0] = 0;
-                anim.SetInteger("AttackInt", timesPressed[0]);
 
             }
         }
@@ -342,8 +341,23 @@ public class player1Controler : MonoBehaviour
         if (attack[0] == true)
             CanMove = false;
         anim.SetBool("Attack1", attack[0]);
+        anim.SetInteger("AttackInt", timesPressed[0]);
         anim.SetBool("Blocking", block);
         //anim.SetInteger("AttackInt", timesPressed[0]);
+    }
+
+    public void ResetCharacter()
+    {
+        rig2D.velocity = Vector3.zero;
+        this.onGround = true;
+        this.falling = false;
+        this.crouch = false;
+        horizontal = 0;
+        up = false;
+        attack[0] = false;
+        timesPressed[0] = 0;
+        block = false;
+        UpdateAnimator();
     }
 
     void OnCollisionStay2D(Collision2D col)

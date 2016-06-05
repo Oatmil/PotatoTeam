@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 5b6bb58b41e146f49b17b0fe18f676bd
+timeCreated: 1465116268
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: pipe effect 565x500_0
+    21300002: pipe effect 565x500_1
+    21300004: pipe effect 565x500_2
+    21300006: pipe effect 565x500_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: pipe effect 565x500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 85, y: -34}
+        - {x: 38, y: -46}
+        - {x: 41, y: -54}
+        - {x: 43, y: -56}
+        - {x: 52, y: -56}
+        - {x: 76, y: -53}
+        - {x: 77, y: -52}
+        - {x: 89, y: -52}
+        - {x: 81, y: -52}
+        - {x: 78, y: -55}
+        - {x: 78, y: -64}
+        - {x: 35, y: -78}
+        - {x: 25, y: -103}
+        - {x: 25, y: -126}
+        - {x: 55, y: -136}
+        - {x: 128, y: -154}
+        - {x: 218, y: -154}
+        - {x: 221, y: -153}
+        - {x: 221, y: -34}
+    - name: pipe effect 565x500_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 141, y: -36}
+        - {x: 82, y: -67}
+        - {x: 82, y: -119}
+        - {x: 132, y: -147}
+        - {x: 188, y: -147}
+        - {x: 218, y: -114}
+        - {x: 218, y: -36}
+    - name: pipe effect 565x500_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82, y: 290}
+        - {x: 15, y: 290}
+        - {x: 11, y: 286}
+        - {x: 1, y: 240}
+        - {x: 1, y: 141}
+        - {x: 85, y: 113}
+        - {x: 138, y: 129}
+        - {x: 130, y: 144}
+        - {x: 126, y: 150}
+        - {x: 123, y: 153}
+        - {x: 119, y: 158}
+        - {x: 132, y: 142}
+        - {x: 146, y: 113}
+        - {x: 186, y: 81}
+        - {x: 194, y: 81}
+        - {x: 194, y: 104}
+        - {x: 186, y: 163}
+    - name: pipe effect 565x500_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1048
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.4, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 62, y: 291}
+        - {x: 39, y: 291}
+        - {x: 10, y: 174}
+        - {x: 10, y: 145}
+        - {x: 12, y: 144}
+        - {x: 35, y: 144}
+        - {x: 121, y: 208}
+        - {x: 121, y: 216}
+        - {x: 110, y: 242}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

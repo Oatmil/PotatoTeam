@@ -9,7 +9,7 @@ public class RoundManager : MonoBehaviour
     public Text m_TimerCanvas;
 
     GameObject[] PlayersList = new GameObject[2];
-    Vector3 Player1Pos;
+    Vector3 Player1Pos; // used for resetting purpose
     Vector3 Player2Pos;
     public int Player1Score;
     public int Player2Score;
@@ -18,7 +18,7 @@ public class RoundManager : MonoBehaviour
     public bool MatchStarted = false;
     public float RoundCountDown;
     public float PreRoundCountDown;
-    float tempRound;
+    float tempRound; //used for resetting purpose
     float tempPreRound;
 
     AudioSource audio;
@@ -35,28 +35,29 @@ public class RoundManager : MonoBehaviour
     void Awake()
     {
         audio = GetComponent<AudioSource>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            {
+                if (players[i].GetComponent<player1Controler>().PlayerNumber == 1)
+                {
+                    PlayersList[0] = players[i];
+                    Player1Pos = PlayersList[0].transform.position;
+                }
+                else if (players[i].GetComponent<player1Controler>().PlayerNumber == 2)
+                {
+                    PlayersList[1] = players[i];
+                    Player2Pos = PlayersList[1].transform.position;
+
+                }
+            }
+        }
     }
     void Start()
     {
         tempPreRound = PreRoundCountDown;
         tempRound = RoundCountDown;
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject temp = GameObject.FindGameObjectWithTag("Player");
-            {
-                if(temp.GetComponent<player1Controler>().PlayerNumber == 1)
-                {
-                    PlayersList[1] = temp;
-                    Player1Pos = PlayersList[1].transform.position;
-                }
-                else if (temp.GetComponent<player1Controler>().PlayerNumber == 2)
-                {
-                    PlayersList[2] = temp;
-                    Player2Pos = PlayersList[2].transform.position;
-
-                }
-            }
-        }
+       
         StartCoroutine(RoundIntro(Time.deltaTime));
     }
     // Update is called once per frame
@@ -127,13 +128,31 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         if (RoundCounter < 3)
         {
-            RoundCountDown = tempRound;
-            PreRoundCountDown = tempPreRound;
-            MatchStarted = false;
-            m_RoundOverImage.enabled = false;
-            m_Player1WinBanner.enabled = false;
-            m_Player2WinBanner.enabled = false;
-            StartCoroutine(RoundIntro(CurrentTime));
+            ResetRound(CurrentTime);
+        }
+    }
+    void ResetRound(float CurrentTime)
+    {
+        RoundCountDown = tempRound;
+        PreRoundCountDown = tempPreRound;
+        MatchStarted = false;
+        m_RoundOverImage.enabled = false;
+        m_Player1WinBanner.enabled = false;
+        m_Player2WinBanner.enabled = false;
+        StartCoroutine(RoundIntro(CurrentTime));
+        int[] PlayerNum = new int[2];
+        for (int i = 0; i < PlayersList.Length; i++)
+        {
+            PlayersList[i].GetComponent<WinLoseAnimationController>().Reset = true;
+            if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 1)
+            {
+                PlayersList[0].transform.position = Player1Pos;
+            }
+            else if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 2)
+            {
+                PlayersList[1].transform.position = Player2Pos;
+            }
+            PlayersList[i].GetComponent<player1Controler>().deathCounter = 0;
         }
     }
 
@@ -142,69 +161,84 @@ public class RoundManager : MonoBehaviour
         int[] deaths = new int[2];
         int[] PlayerNum = new int[2];
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < PlayersList.Length; i++)
         {
-            deaths[i] = players[i].GetComponent<player1Controler>().deathCounter;
-            PlayerNum[i] = players[i].GetComponent<player1Controler>().PlayerNumber;
+            deaths[i] = PlayersList[i].GetComponent<player1Controler>().deathCounter;
+            PlayerNum[i] = PlayersList[i].GetComponent<player1Controler>().PlayerNumber;
         }
         for (int j = 0; j < deaths.Length - 1; j++)
         {
             if (deaths[j] < deaths[j + 1])
             {
-                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Winner Is "+"Player " + PlayerNum[j].ToString("f0");
+                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j].ToString("f0") + "\n Takes It";
                 CheckPlayerWinner(PlayerNum[j]);
-                players[j].GetComponent<WinLoseAnimationController>().Win = true;
-                players[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
+                PlayersList[j].GetComponent<WinLoseAnimationController>().Win = true;
+                PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
 
             }
             else if(deaths[j]>deaths[j+1])
             {
-                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Winner Is "+"Player " + PlayerNum[j + 1].ToString("f0");
+                m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j + 1].ToString("f0") + "\n Takes It";
                 CheckPlayerWinner(PlayerNum[j + 1]);
-                players[j].GetComponent<WinLoseAnimationController>().Lose = true;
-                players[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
+                PlayersList[j].GetComponent<WinLoseAnimationController>().Lose = true;
+                PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
             }
             else
             {
                 m_TimerCanvas.text = "Tied";
             }
+            deaths[j] = 0;
+            deaths[j + 1] = 0;
         }
     }
 
     void CheckPlayerWinner(int playerNumber)
     {
-        if (playerNumber == 1)
+        if (RoundCounter == 3)
         {
-            m_Player1WinBanner.enabled = true;
+            if (playerNumber == 1)
+            {
+                m_Player1WinBanner.enabled = true;
+                Player1Score += 1;
+            }
+            else if (playerNumber == 2)
+            {
+                m_Player2WinBanner.enabled = true;
+                Player2Score += 1;
+            }
+            audio.clip = m_CelebrationAudio;
+            audio.Play();
         }
-        else if (playerNumber == 2)
+        else
         {
-            m_Player2WinBanner.enabled = true;
+            if (playerNumber == 1)
+            {
+                Player1Score += 1;
+            }
+            else if (playerNumber == 2)
+            {
+                Player2Score += 1;
+            }
         }
-        audio.clip = m_CelebrationAudio;
-        audio.Play();
     }
-
-
+    
     IEnumerator TurnOnPlayerControls()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < PlayersList.Length; i++)
         {
-            players[i].GetComponent<player1Controler>().enabled = true;
+            PlayersList[i].GetComponent<player1Controler>().enabled = true;
             yield return new WaitForSeconds(0.2f);
-
         }
     }
     IEnumerator TurnOffPlayerControls()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        yield return new WaitForSeconds(0.2f);
-        for (int i = 0; i < players.Length; i++)
+        yield return new WaitForSeconds (0.5f);
+        for (int i = 0; i < PlayersList.Length; i++)
         {
-            players[i].GetComponent<player1Controler>().ScaleCheck();
-            players[i].GetComponent<player1Controler>().enabled = false;
+            PlayersList[i].GetComponent<player1Controler>().ResetCharacter();
+            PlayersList[i].GetComponent<player1Controler>().ScaleCheck();
+            PlayersList[i].GetComponent<player1Controler>().enabled = false;
         }
+        
     }
 }

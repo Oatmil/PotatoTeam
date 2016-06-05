@@ -64,4 +64,18 @@ public class AudioController : MonoBehaviour {
         audio.volume = VolumeIndex[7];
         audio.Play();
     }
+
+    void Elemtent8()
+    {
+        audio.clip = m_SoundEffects[8];
+        audio.volume = VolumeIndex[8];
+        audio.Play();
+    }
+
+    void Element9()
+    {
+        audio.clip = m_SoundEffects[9];
+        audio.volume = VolumeIndex[9];
+        audio.Play();
+    }
 }

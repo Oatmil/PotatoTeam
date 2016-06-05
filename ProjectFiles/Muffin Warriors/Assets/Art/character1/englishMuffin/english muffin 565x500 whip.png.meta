@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: 23092e7d2775dc54bba73bf4f132fb8e
+timeCreated: 1464723322
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: english muffin 565x500 whip_0
+    21300002: english muffin 565x500 whip_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: english muffin 565x500 whip_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3069, y: 0.1394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 117.6015, y: 36.299988}
+        - {x: 89.6015, y: 131.29999}
+        - {x: -40.3985, y: 263.3}
+        - {x: -103.3985, y: 263.3}
+        - {x: -131.3985, y: 252.29999}
+        - {x: -131.3985, y: -18.700012}
+        - {x: -112.3985, y: -23.700012}
+        - {x: 76.6015, y: -23.700012}
+        - {x: 135.6015, y: -1.7000122}
+        - {x: 135.6015, y: 1.2999878}
+        - {x: 134.6015, y: 2.2999878}
+        - {x: 37.6015, y: 3.2999878}
+        - {x: 87.6015, y: 8.299988}
+      - - {x: -51.3985, y: 344.3}
+        - {x: -70.3985, y: 327.3}
+        - {x: -70.3985, y: 313.3}
+        - {x: 55.6015, y: 143.29999}
+        - {x: 72.6015, y: 143.29999}
+        - {x: 82.6015, y: 149.29999}
+        - {x: 82.6015, y: 167.29999}
+        - {x: -37.3985, y: 344.3}
+    - name: english muffin 565x500 whip_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.28016755, y: 0.14921203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 321.70532, y: 41.393982}
+        - {x: 320.70532, y: 42.393982}
+        - {x: 110.70534, y: 41.393982}
+        - {x: 128.70534, y: 74.39398}
+        - {x: 192.70534, y: 182.39398}
+        - {x: 138.70534, y: 245.39398}
+        - {x: 95.70534, y: 245.39398}
+        - {x: 20.705338, y: 206.39398}
+        - {x: -71.29466, y: 106.39398}
+        - {x: -64.29466, y: 40.393982}
+        - {x: -118.29466, y: 16.393982}
+        - {x: -118.29466, y: -5.606018}
+        - {x: -52.294662, y: -31.606018}
+        - {x: 62.705338, y: -31.606018}
+        - {x: 141.70534, y: -1.6060181}
+        - {x: 135.70534, y: 2.393982}
+        - {x: 321.70532, y: -1.6060181}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

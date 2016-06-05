@@ -28,17 +28,17 @@ public class DamageScript : MonoBehaviour
                         GameObject blockObject = blocksparkpool.m_instance1.NewObject();
                         if (blockObject != null)
                         {
-
-                            blockObject.transform.rotation = Quaternion.identity;
+                            blockObject.transform.localScale = new Vector3(1, 1, 1);
+                            // blockObject.transform.rotation = Quaternion.identity;
                             if (col.transform.root.localScale.x > 0.1f)
                             {
-                                blockObject.transform.localScale = new Vector3(-2, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x + 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.5f);
+                                blockObject.transform.eulerAngles = new Vector3(0, -52, 0);
+                                blockObject.transform.position = new Vector3(col.transform.position.x + 0.5f, col.transform.position.y + 1.2f, col.transform.position.z - 0.5f);
                             }
                             else
                             {
-                                blockObject.transform.localScale = new Vector3(2, 1, 1);
-                                blockObject.transform.position = new Vector3(col.transform.position.x - 0.5f, col.transform.position.y + 0.9f, col.transform.position.z - 0.5f);
+                                blockObject.transform.eulerAngles = new Vector3(0, 52, 0);
+                                blockObject.transform.position = new Vector3(col.transform.position.x - 0.5f, col.transform.position.y + 1.2f, col.transform.position.z - 0.5f);
                             }
                             blockObject.SetActive(true);
                         }
@@ -53,8 +53,17 @@ public class DamageScript : MonoBehaviour
                         GameObject newObject = hitsparkpool.m_instance.NewObject();
                         if (newObject != null)
                         {
-                            newObject.transform.position = new Vector3(col.transform.position.x, col.transform.position.y + 0.6f, col.transform.position.z-0.5f);
-                            newObject.transform.rotation = Quaternion.identity;
+                            newObject.transform.localScale = new Vector3(1, 1, 1);
+                            if (col.transform.root.localScale.x > 0.1f)
+                            {
+                                newObject.transform.eulerAngles = new Vector3(-15.6f, -52, 0);
+                                newObject.transform.position = new Vector3(col.transform.position.x - 1f, col.transform.position.y + 1.2f, col.transform.position.z - 1.5f);
+                            }
+                            else
+                            {
+                                newObject.transform.eulerAngles = new Vector3(-15.6f, 52, 0);
+                                newObject.transform.position = new Vector3(col.transform.position.x + 1f, col.transform.position.y + 1.2f, col.transform.position.z - 1.5f);
+                            }
                             newObject.SetActive(true);
                         }
                         player1Controler TempRoot = transform.root.GetComponent<player1Controler>();

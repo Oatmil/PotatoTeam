@@ -5,6 +5,7 @@ public class WinLoseAnimationController : MonoBehaviour {
     Animator anim;
     public bool Win;
     public bool Lose;
+    public bool Reset;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,11 @@ public class WinLoseAnimationController : MonoBehaviour {
         {
             anim.SetTrigger("Lose");
             Lose = false;
+        }
+        if (Reset == true)
+        {
+            anim.SetTrigger("Reset");
+            Reset = false;
         }
 	}
 }
