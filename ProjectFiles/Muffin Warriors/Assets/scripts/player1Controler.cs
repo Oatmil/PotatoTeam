@@ -24,7 +24,8 @@ public class player1Controler : MonoBehaviour
 
     public int MaxBlockingCharge; /// determines how many charges the characters have
     [HideInInspector]
-    public int blockCharge; 
+    public int blockCharge; /// current block charge
+
     public float BlockingRechargeTimer; ///Timetaken to recharge the blocking
     public float JumpForce = 20; ///force of jump
     public float FlapForce; /// force of flap
@@ -52,6 +53,8 @@ public class player1Controler : MonoBehaviour
     public bool CanMove = false;
     float MoveTimer = 0;
     float blockTimer = 0;
+    public float RecheckTimer;
+
 
     [HideInInspector]
     public bool InAirAttack = false;
@@ -59,6 +62,8 @@ public class player1Controler : MonoBehaviour
     public bool CrouchAttack = false;
     [HideInInspector]
     public bool GetBlocked = false;
+
+
 
     // Use this for initialization
     void Start()
@@ -169,7 +174,7 @@ public class player1Controler : MonoBehaviour
 
     void RecheckMove()
     {
-        if (MoveTimer > 0.6f)
+        if (MoveTimer > RecheckTimer)
         {
             CanMove = true;
             MoveTimer = 0;
@@ -294,7 +299,6 @@ public class player1Controler : MonoBehaviour
                     CrouchAttack = false;
                     InAirAttack = false;
                 }
-                CanMove = true;
             }
 
         }
@@ -358,6 +362,7 @@ public class player1Controler : MonoBehaviour
         timesPressed[0] = 0;
         block = false;
         UpdateAnimator();
+        damage = false;
     }
 
     void OnCollisionStay2D(Collision2D col)

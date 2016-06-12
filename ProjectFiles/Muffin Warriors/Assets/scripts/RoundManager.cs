@@ -57,7 +57,7 @@ public class RoundManager : MonoBehaviour
     {
         tempPreRound = PreRoundCountDown;
         tempRound = RoundCountDown;
-       
+        StartCoroutine(TurnOnPlayerControls());
         StartCoroutine(RoundIntro(Time.deltaTime));
     }
     // Update is called once per frame
@@ -126,7 +126,15 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         RoundEnd();
         yield return new WaitForSeconds(5.0f);
-        if (RoundCounter < 3)
+        if (Player1Score == 2)
+        {
+            EndGamePlayerWinner(1);
+        }
+        else if (Player2Score == 2)
+        {
+            EndGamePlayerWinner(2);
+        }
+        else if (Player1Score != 2 && Player2Score != 2)
         {
             ResetRound(CurrentTime);
         }
@@ -171,16 +179,15 @@ public class RoundManager : MonoBehaviour
             if (deaths[j] < deaths[j + 1])
             {
                 m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j].ToString("f0") + "\n Takes It";
-                CheckPlayerWinner(PlayerNum[j]);
                 PlayersList[j].GetComponent<WinLoseAnimationController>().Win = true;
+                CheckPlayerWinner(PlayerNum[j]);
                 PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
-
             }
             else if(deaths[j]>deaths[j+1])
             {
                 m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j + 1].ToString("f0") + "\n Takes It";
-                CheckPlayerWinner(PlayerNum[j + 1]);
                 PlayersList[j].GetComponent<WinLoseAnimationController>().Lose = true;
+                CheckPlayerWinner(PlayerNum[j + 1]);
                 PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
             }
             else
@@ -192,33 +199,31 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    void EndGamePlayerWinner(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            m_Player1WinBanner.enabled = true;
+            Player1Score += 1;
+        }
+        else if (playerNumber == 2)
+        {
+            m_Player2WinBanner.enabled = true;
+            Player2Score += 1;
+        }
+        audio.clip = m_CelebrationAudio;
+        audio.Play();
+    }
+
     void CheckPlayerWinner(int playerNumber)
     {
-        if (RoundCounter == 3)
+        if (playerNumber == 1)
         {
-            if (playerNumber == 1)
-            {
-                m_Player1WinBanner.enabled = true;
-                Player1Score += 1;
-            }
-            else if (playerNumber == 2)
-            {
-                m_Player2WinBanner.enabled = true;
-                Player2Score += 1;
-            }
-            audio.clip = m_CelebrationAudio;
-            audio.Play();
+            Player1Score += 1;
         }
-        else
+        else if (playerNumber == 2)
         {
-            if (playerNumber == 1)
-            {
-                Player1Score += 1;
-            }
-            else if (playerNumber == 2)
-            {
-                Player2Score += 1;
-            }
+            Player2Score += 1;
         }
     }
     

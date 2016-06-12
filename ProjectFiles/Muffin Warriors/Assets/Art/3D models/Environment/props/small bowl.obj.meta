@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: f57b0c31bce59fa48b4000ae560b41fd
-timeCreated: 1460027820
+guid: d203668a0763b1b4499507198e47680d
+timeCreated: 1464601542
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cone002
+    100000: Cone003
     100002: //RootNode
-    400000: Cone002
+    400000: Cone003
     400002: //RootNode
-    2300000: Cone002
-    3300000: Cone002
-    4300000: Cone002
+    2300000: Cone003
+    3300000: Cone003
+    4300000: Cone003
   materials:
     importMaterials: 1
     materialName: 0

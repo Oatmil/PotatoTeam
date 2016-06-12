@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: f2a43be15dc645742a1c003c6a5425b3
+timeCreated: 1465711757
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: smear effect_0
+    21300002: smear effect_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: smear effect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 124.5, y: 21}
+        - {x: 122.5, y: -1}
+        - {x: 122.5, y: -3}
+        - {x: 122.5, y: 21}
+        - {x: 121.5, y: 26}
+        - {x: 108.5, y: 18}
+        - {x: 98.5, y: 53}
+        - {x: 91.5, y: 57}
+        - {x: 81.5, y: 44}
+        - {x: 11.5, y: 116}
+        - {x: -2.5, y: 221}
+        - {x: -47.5, y: 221}
+        - {x: -195.5, y: 131}
+        - {x: -195.5, y: 82}
+        - {x: -90.5, y: -52}
+        - {x: 77.5, y: -157}
+        - {x: 159.5, y: -157}
+        - {x: 202.5, y: -13}
+        - {x: 202.5, y: 53}
+        - {x: 196.5, y: 54}
+    - name: smear effect_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64.5, y: 187}
+        - {x: -70.5, y: 189}
+        - {x: -96.5, y: 175}
+        - {x: -106.5, y: 170}
+        - {x: -100.5, y: 188}
+        - {x: -99.5, y: 193}
+        - {x: -100.5, y: 196}
+        - {x: -109.5, y: 195}
+        - {x: -127.5, y: 186}
+        - {x: -125.5, y: 187}
+        - {x: -123.5, y: 189}
+        - {x: -122.5, y: 189}
+        - {x: -118.5, y: 191}
+        - {x: -87.5, y: 210}
+        - {x: -79.5, y: 221}
+        - {x: -92.5, y: 221}
+        - {x: -140.5, y: 197}
+        - {x: -165.5, y: 181}
+        - {x: -216.5, y: 135}
+        - {x: -258.5, y: 93}
+        - {x: -258.5, y: 53}
+        - {x: -143.5, y: -53}
+        - {x: 86.5, y: -233}
+        - {x: 94.5, y: -233}
+        - {x: 112.5, y: -207}
+        - {x: 117.5, y: -199}
+        - {x: 115.5, y: -231}
+        - {x: 117.5, y: -233}
+        - {x: 124.5, y: -233}
+        - {x: 202.5, y: -97}
+        - {x: 206.5, y: -80}
+        - {x: 206.5, y: 12}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

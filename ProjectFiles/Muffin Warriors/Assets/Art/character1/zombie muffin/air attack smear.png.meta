@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: a79c25b0ceb6daf4083560face3cd1ab
+timeCreated: 1465711681
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: air attack smear_0
+    21300002: air attack smear_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: air attack smear_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 143.5, y: 110}
+        - {x: 118.5, y: 110}
+        - {x: -17.5, y: -86}
+        - {x: -17.5, y: -151}
+        - {x: -11.5, y: -158}
+        - {x: 89.5, y: -158}
+        - {x: 150.5, y: -40}
+        - {x: 150.5, y: 89}
+        - {x: 145.5, y: 109}
+    - name: air attack smear_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 117.5, y: -19}
+        - {x: 112.5, y: -19}
+        - {x: 109.5, y: -21}
+        - {x: 18.5, y: -68}
+        - {x: -12.5, y: -105}
+        - {x: -12.5, y: -127}
+        - {x: 8.5, y: -158}
+        - {x: 12.5, y: -160}
+        - {x: 59.5, y: -160}
+        - {x: 84.5, y: -142}
+        - {x: 114.5, y: -68}
+        - {x: 117.5, y: -55}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

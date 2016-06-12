@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: e195f3ad9950c0347907137eb20d905b
+timeCreated: 1465711663
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: attack down smear_0
+    21300002: attack down smear_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: attack down smear_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 155.5, y: 6}
+        - {x: 95.5, y: -10}
+        - {x: 85.5, y: -16}
+        - {x: 53.5, y: 6}
+        - {x: 34.5, y: 6}
+        - {x: 34.5, y: -161}
+        - {x: 37.5, y: -163}
+        - {x: 183.5, y: -163}
+        - {x: 186.5, y: -141}
+        - {x: 186.5, y: -1}
+        - {x: 168.5, y: 6}
+    - name: attack down smear_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 565
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 142.5, y: 49}
+        - {x: 108.5, y: 94}
+        - {x: 17.5, y: 181}
+        - {x: -24.5, y: 199}
+        - {x: -55.5, y: 199}
+        - {x: -75.5, y: 151}
+        - {x: -77.5, y: 142}
+        - {x: -67.5, y: 119}
+        - {x: -78.5, y: 129}
+        - {x: -86.5, y: 130}
+        - {x: -86.5, y: 55}
+        - {x: -72.5, y: 31}
+        - {x: 35.5, y: -32}
+        - {x: 37.5, y: -17}
+        - {x: 147.5, y: -38}
+        - {x: 150.5, y: -32}
+        - {x: 152.5, y: -45}
+        - {x: 164.5, y: -57}
+        - {x: 171.5, y: -57}
+        - {x: 171.5, y: -32}
+        - {x: 161.5, y: 9}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

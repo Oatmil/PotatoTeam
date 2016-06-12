@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: 3e73b50d55a401848a03ca6e2d2877dc
+timeCreated: 1465196219
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: english muffin mlk4 idle_0
+    21300002: english muffin mlk4 idle_1
+    21300004: english muffin mlk4 idle_2
+    21300006: english muffin mlk4 idle_3
+    21300008: english muffin mlk4 idle_4
+    21300010: english muffin mlk4 idle_5
+    21300012: english muffin mlk4 idle_6
+    21300014: english muffin mlk4 idle_7
+    21300016: english muffin mlk4 idle_8
+    21300018: english muffin mlk4 idle_9
+    21300020: english muffin mlk4 idle_10
+    21300022: english muffin mlk4 idle_11
+    21300024: english muffin mlk4 idle_12
+    21300026: english muffin mlk4 idle_13
+    21300028: english muffin mlk4 idle_14
+    21300030: english muffin mlk4 idle_15
+    21300032: english muffin mlk4 idle_16
+    21300034: english muffin mlk4 idle_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: english muffin mlk4 idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42.814003, y: 168.32495}
+        - {x: -73.814, y: 108.32495}
+        - {x: -75.814, y: 62.32495}
+        - {x: -75.814, y: -2.6750488}
+        - {x: -18.814003, y: -15.675049}
+        - {x: 86.186, y: -15.675049}
+        - {x: 86.186, y: 168.32495}
+    - name: english muffin mlk4 idle_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -74.313995, y: -8.675049}
+        - {x: -45.313995, y: -15.675049}
+        - {x: 37.686005, y: -15.675049}
+        - {x: 86.686005, y: -1.6750488}
+        - {x: 86.686005, y: 12.324951}
+        - {x: 26.686005, y: 161.32495}
+        - {x: 24.686005, y: 162.32495}
+        - {x: -44.313995, y: 162.32495}
+        - {x: -74.313995, y: 109.32495}
+    - name: english muffin mlk4 idle_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75.814026, y: 142.32495}
+        - {x: -75.814026, y: -10.675049}
+        - {x: -58.814026, y: -15.675049}
+        - {x: 61.185974, y: -15.675049}
+        - {x: 86.185974, y: -7.675049}
+        - {x: 86.185974, y: 39.32495}
+        - {x: 80.185974, y: 54.32495}
+        - {x: 11.185974, y: 156.32495}
+        - {x: -55.814026, y: 156.32495}
+        - {x: -61.814026, y: 155.32495}
+    - name: english muffin mlk4 idle_3
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84.685974, y: 3.3249512}
+        - {x: 65.685974, y: 43.32495}
+        - {x: 12.685974, y: 144.32495}
+        - {x: 7.685974, y: 150.32495}
+        - {x: -50.314026, y: 150.32495}
+        - {x: -64.314026, y: 147.32495}
+        - {x: -74.314026, y: 113.32495}
+        - {x: -74.314026, y: -7.675049}
+        - {x: -28.314026, y: -15.675049}
+        - {x: 3.6859741, y: -15.675049}
+        - {x: 4.685974, y: -14.675049}
+        - {x: 85.685974, y: -3.6750488}
+        - {x: 86.685974, y: -0.6750488}
+        - {x: 86.685974, y: 2.3249512}
+    - name: english muffin mlk4 idle_4
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75.813965, y: -15.675049}
+        - {x: 86.186035, y: -15.675049}
+        - {x: 86.186035, y: 40.32495}
+        - {x: 25.186035, y: 144.32495}
+        - {x: -66.813965, y: 144.32495}
+        - {x: -70.813965, y: 141.32495}
+        - {x: -75.813965, y: 97.32495}
+    - name: english muffin mlk4 idle_5
+      rect:
+        serializedVersion: 2
+        x: 2825
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -74.313965, y: -15.675049}
+        - {x: 56.686035, y: -15.675049}
+        - {x: 86.686035, y: -10.675049}
+        - {x: 86.686035, y: 16.324951}
+        - {x: 12.686035, y: 150.32495}
+        - {x: -73.313965, y: 150.32495}
+        - {x: -74.313965, y: 145.32495}
+    - name: english muffin mlk4 idle_6
+      rect:
+        serializedVersion: 2
+        x: 3390
+        y: 3596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75.813965, y: 157.32495}
+        - {x: -75.813965, y: -7.675049}
+        - {x: -67.813965, y: -14.675049}
+        - {x: 86.186035, y: -14.675049}
+        - {x: 86.186035, y: 109.32495}
+        - {x: 13.186035, y: 157.32495}
+    - name: english muffin mlk4 idle_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71.814, y: 162.32495}
+        - {x: -75.814, y: 140.32495}
+        - {x: -75.814, y: -15.675049}
+        - {x: 86.186, y: -15.675049}
+        - {x: 86.186, y: 125.32495}
+        - {x: 23.185997, y: 162.32495}
+    - name: english muffin mlk4 idle_8
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -74.313995, y: 1.3249512}
+        - {x: -73.313995, y: -1.6750488}
+        - {x: -31.313995, y: -15.675049}
+        - {x: 45.686005, y: -15.675049}
+        - {x: 86.686005, y: -5.675049}
+        - {x: 86.686005, y: 44.32495}
+        - {x: 42.686005, y: 168.32495}
+        - {x: -66.313995, y: 168.32495}
+        - {x: -74.313995, y: 121.32495}
+    - name: english muffin mlk4 idle_9
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.185974, y: 168.32495}
+        - {x: -42.814026, y: 168.32495}
+        - {x: -75.814026, y: 134.32495}
+        - {x: -75.814026, y: -2.6750488}
+        - {x: -16.814026, y: -15.675049}
+        - {x: 1.1859741, y: -15.675049}
+        - {x: 2.1859741, y: -14.675049}
+        - {x: 86.185974, y: -3.6750488}
+        - {x: 86.185974, y: 46.32495}
+        - {x: 81.185974, y: 103.32495}
+    - name: english muffin mlk4 idle_10
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 67.685974, y: 87.32495}
+        - {x: 50.685974, y: 88.32495}
+        - {x: 46.685974, y: 83.32495}
+        - {x: 23.685974, y: 157.32495}
+        - {x: 2.6859741, y: 162.32495}
+        - {x: -44.314026, y: 162.32495}
+        - {x: -74.314026, y: 123.32495}
+        - {x: -74.314026, y: -5.675049}
+        - {x: -38.314026, y: -15.675049}
+        - {x: 36.685974, y: -15.675049}
+        - {x: 84.685974, y: -1.6750488}
+        - {x: 86.685974, y: -0.6750488}
+        - {x: 86.685974, y: 26.324951}
+        - {x: 82.685974, y: 78.32495}
+    - name: english muffin mlk4 idle_11
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.186035, y: 156.32495}
+        - {x: -51.813965, y: 156.32495}
+        - {x: -73.813965, y: 93.32495}
+        - {x: -75.813965, y: 84.32495}
+        - {x: -75.813965, y: -15.675049}
+        - {x: 85.186035, y: -15.675049}
+        - {x: 85.186035, y: 34.32495}
+        - {x: 74.186035, y: 78.32495}
+        - {x: 47.186035, y: 96.32495}
+        - {x: 11.186035, y: 148.32495}
+    - name: english muffin mlk4 idle_12
+      rect:
+        serializedVersion: 2
+        x: 2825
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.686035, y: 143.32495}
+        - {x: -1.3139648, y: 150.32495}
+        - {x: -52.313965, y: 150.32495}
+        - {x: -74.313965, y: 108.32495}
+        - {x: -74.313965, y: -7.675049}
+        - {x: -28.313965, y: -15.675049}
+        - {x: 26.686035, y: -15.675049}
+        - {x: 86.686035, y: -5.675049}
+        - {x: 86.686035, y: 23.324951}
+        - {x: 71.686035, y: 91.32495}
+    - name: english muffin mlk4 idle_13
+      rect:
+        serializedVersion: 2
+        x: 3390
+        y: 3096
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76.813965, y: 144.32495}
+        - {x: -76.813965, y: -15.675049}
+        - {x: 39.186035, y: -15.675049}
+        - {x: 84.186035, y: -1.6750488}
+        - {x: 84.186035, y: 98.32495}
+        - {x: 3.1860352, y: 144.32495}
+    - name: english muffin mlk4 idle_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.185997, y: 21.324951}
+        - {x: 51.185997, y: 17.324951}
+        - {x: 57.185997, y: 15.324951}
+        - {x: 64.186, y: 26.324951}
+        - {x: 86.186, y: 65.32495}
+        - {x: 86.186, y: 86.32495}
+        - {x: 23.185997, y: 150.32495}
+        - {x: -51.814003, y: 150.32495}
+        - {x: -65.814, y: 120.32495}
+        - {x: -74.814, y: 68.32495}
+        - {x: -49.814003, y: 21.324951}
+        - {x: -36.814003, y: 11.324951}
+        - {x: -30.814003, y: 6.324951}
+        - {x: -75.814, y: 5.324951}
+        - {x: -75.814, y: -3.6750488}
+        - {x: -45.814003, y: -15.675049}
+        - {x: 49.185997, y: -15.675049}
+        - {x: 84.186, y: -1.6750488}
+        - {x: 86.186, y: 0.32495117}
+        - {x: 85.186, y: 3.3249512}
+        - {x: 39.185997, y: 14.324951}
+    - name: english muffin mlk4 idle_15
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -74.313995, y: 100.32495}
+        - {x: -74.313995, y: -5.675049}
+        - {x: -66.313995, y: -15.675049}
+        - {x: 86.686005, y: -15.675049}
+        - {x: 86.686005, y: 156.32495}
+        - {x: -55.313995, y: 156.32495}
+        - {x: -62.313995, y: 152.32495}
+        - {x: -70.313995, y: 103.32495}
+    - name: english muffin mlk4 idle_16
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -72.814026, y: 162.32495}
+        - {x: -75.814026, y: 144.32495}
+        - {x: -75.814026, y: -15.675049}
+        - {x: 27.185974, y: -15.675049}
+        - {x: 86.185974, y: -2.6750488}
+        - {x: 86.185974, y: 107.32495}
+        - {x: 39.185974, y: 162.32495}
+    - name: english muffin mlk4 idle_17
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 2596
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.3312, y: 0.0667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70.314026, y: 168.32495}
+        - {x: -74.314026, y: 159.32495}
+        - {x: -74.314026, y: -0.6750488}
+        - {x: -73.314026, y: -1.6750488}
+        - {x: -31.314026, y: -15.675049}
+        - {x: 45.685974, y: -15.675049}
+        - {x: 86.685974, y: -5.675049}
+        - {x: 86.685974, y: 131.32495}
+        - {x: 14.685974, y: 168.32495}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

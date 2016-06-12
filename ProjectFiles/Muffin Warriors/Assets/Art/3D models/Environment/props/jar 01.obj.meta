@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 79ce33f60c340e645948b3b0e7ca6d87
-timeCreated: 1460027819
+guid: a00b26b707e44b948929ac5c968d5c47
+timeCreated: 1464601542
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cylinder019
+    100000: Cylinder028
     100002: //RootNode
-    400000: Cylinder019
+    400000: Cylinder028
     400002: //RootNode
-    2300000: Cylinder019
-    3300000: Cylinder019
-    4300000: Cylinder019
+    2300000: Cylinder028
+    3300000: Cylinder028
+    4300000: Cylinder028
   materials:
     importMaterials: 1
     materialName: 0
