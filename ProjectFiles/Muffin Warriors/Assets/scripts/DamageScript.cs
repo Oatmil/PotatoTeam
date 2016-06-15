@@ -21,7 +21,7 @@ public class DamageScript : MonoBehaviour
                     if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f && PlayerController.up == false && PlayerController.blockCharge > 0)
                     {
                         PlayerController.block = true;
-                        Banner.FadeDuration = 1.0f;
+                        Banner.SetExplosionON();
                         tempBanner.text = "block";
                         transform.root.GetComponent<player1Controler>().GetBlocked = true;
                         Debug.Log("block");

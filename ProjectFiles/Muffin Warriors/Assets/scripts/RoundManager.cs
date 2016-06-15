@@ -22,6 +22,7 @@ public class RoundManager : MonoBehaviour
     float tempPreRound;
 
     AudioSource audio;
+    public Image m_ReadyRoundImage;
     public Image m_StartRoundImage;
     public Image m_RoundOverImage;
     public Image m_Player1WinBanner;
@@ -63,13 +64,18 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PreRoundCountDown < 1.4f && MatchStarted == false)
+        if (PreRoundCountDown > 1.0f && MatchStarted == false)
         {
+            m_ReadyRoundImage.enabled = true;
+        }
+        if (PreRoundCountDown < 1.0f && MatchStarted == false)
+        {
+            m_ReadyRoundImage.enabled = false;
             audio.clip = m_StartRoundAudio;
             m_StartRoundImage.enabled = true;
             if (audio.isPlaying == false)
             {
-                audio.Play();
+				audio.Play();
             }
         }
         if (MatchStarted == true)
@@ -97,7 +103,7 @@ public class RoundManager : MonoBehaviour
         {
             StartCoroutine(TurnOffPlayerControls());
             PreRoundCountDown -= CurrentTime;
-            m_TimerCanvas.text = "Round " + (RoundCounter + 1).ToString()+ "\n Starting in \n" +PreRoundCountDown.ToString("f2");
+            m_TimerCanvas.text = "READY!";
             yield return null;
         }
         MatchStarted = true;
@@ -122,7 +128,7 @@ public class RoundManager : MonoBehaviour
         }
         StartCoroutine(TurnOffPlayerControls());
 
-        m_TimerCanvas.text = "The \n Results \n Are \n In";
+        m_TimerCanvas.text = "The Results \n Are In";
         yield return new WaitForSeconds(3.0f);
         RoundEnd();
         yield return new WaitForSeconds(5.0f);
@@ -211,20 +217,22 @@ public class RoundManager : MonoBehaviour
             m_Player2WinBanner.enabled = true;
             Player2Score += 1;
         }
-        audio.clip = m_CelebrationAudio;
-        audio.Play();
     }
 
     void CheckPlayerWinner(int playerNumber)
     {
         if (playerNumber == 1)
         {
+            m_Player1WinBanner.enabled = true;
             Player1Score += 1;
         }
         else if (playerNumber == 2)
         {
+            m_Player2WinBanner.enabled = true;
             Player2Score += 1;
         }
+        audio.clip = m_CelebrationAudio;
+        audio.Play();
     }
     
     IEnumerator TurnOnPlayerControls()
