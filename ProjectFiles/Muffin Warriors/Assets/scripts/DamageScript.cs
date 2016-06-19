@@ -7,6 +7,13 @@ public class DamageScript : MonoBehaviour
     player1Controler PlayerController;
     Text textBanner;
     BannerScript Banner;
+    CameraScript GameCamera;
+
+    void Awake()
+    {
+        GameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.root.tag == "Player")
@@ -24,6 +31,7 @@ public class DamageScript : MonoBehaviour
                         Banner.SetExplosionON();
                         tempBanner.text = "block";
                         transform.root.GetComponent<player1Controler>().GetBlocked = true;
+                        GameCamera.ScreenSlowMo = true;
                         Debug.Log("block");
                         GameObject blockObject = blocksparkpool.m_instance1.NewObject();
                         if (blockObject != null)
@@ -47,6 +55,7 @@ public class DamageScript : MonoBehaviour
                     {
                         Banner.FadeDuration = 1.0f;
                         tempBanner.text = "hit";
+                        GameCamera.ScreenShake = true;
                         Debug.Log("hit");
                         PlayerController.damage = true;
                         col.transform.root.GetComponentInChildren<Animator>().SetTrigger("Damage");

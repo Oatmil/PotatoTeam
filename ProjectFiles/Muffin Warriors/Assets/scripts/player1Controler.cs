@@ -310,7 +310,7 @@ public class player1Controler : MonoBehaviour
         {
             Vector3 dir = enemy.position - transform.position;
             rig2D.velocity = Vector3.zero;
-            rig2D.AddForce(new Vector3(-dir.x * m_knockBack.Block.x, m_knockBack.Block.y, m_knockBack.Block.z));
+            //rig2D.AddForce(new Vector3(-dir.x * m_knockBack.Block.x, m_knockBack.Block.y, m_knockBack.Block.z));
             noDamageTimer += Time.deltaTime;
             if (noDamageTimer > noblock)
             {
