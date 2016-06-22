@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class RoundManager : MonoBehaviour
 {
-
+    ResetButton m_managerScript;
 	public Text m_TimerCanvas;
 
 	GameObject[] PlayersList = new GameObject[2];
@@ -32,6 +32,7 @@ public class RoundManager : MonoBehaviour
 	public AudioClip m_Last10Seconds;
 	public AudioClip m_RoundEndAudio;
 	public AudioClip m_CelebrationAudio;
+
 
 	void Awake()
 	{
@@ -60,10 +61,12 @@ public class RoundManager : MonoBehaviour
 		tempRound = RoundCountDown;
 		StartCoroutine(TurnOnPlayerControls());
 		StartCoroutine(RoundIntro(Time.deltaTime));
+        m_managerScript = transform.GetComponent<ResetButton>();
 	}
 	// Update is called once per frame
 	void Update()
 	{
+
 		if (PreRoundCountDown > 1.0f && MatchStarted == false)
 		{
 			m_ReadyRoundImage.enabled = true;
@@ -102,7 +105,8 @@ public class RoundManager : MonoBehaviour
 		while (PreRoundCountDown >= 0)
 		{
 			StartCoroutine(TurnOffPlayerControls());
-			PreRoundCountDown -= CurrentTime;
+            PreRoundCountDown -= CurrentTime;
+            
 			m_TimerCanvas.text = "READY!";
 			yield return null;
 		}
@@ -115,8 +119,16 @@ public class RoundManager : MonoBehaviour
 	{
 		while (RoundCountDown >= 0)
 		{
-			StartCoroutine(TurnOnPlayerControls());
-			RoundCountDown -= CurrentTime;
+            if (Time.timeScale == 0)
+            {
+                pausePlayers();
+                RoundCountDown -= 0;
+            }
+            else
+            {
+                unpausePlayers();
+                RoundCountDown -= CurrentTime;
+            }
 			m_TimerCanvas.text = "timer : \n" + RoundCountDown.ToString("f2");
 			yield return null;
 		}
@@ -135,10 +147,15 @@ public class RoundManager : MonoBehaviour
 		if (Player1Score == 2)
 		{
 			EndGamePlayerWinner(1);
+            yield return new WaitForSeconds(2.0f);
+            m_managerScript.Pause();
 		}
 		else if (Player2Score == 2)
 		{
 			EndGamePlayerWinner(2);
+            yield return new WaitForSeconds(2.0f);
+            m_managerScript.Pause();
+            
 		}
 		else if (Player1Score != 2 && Player2Score != 2)
 		{
@@ -217,6 +234,8 @@ public class RoundManager : MonoBehaviour
 			m_Player2WinBanner.enabled = true;
 			Player2Score += 1;
 		}
+        audio.clip = m_CelebrationAudio;
+        audio.Play();
 	}
 
 	void CheckPlayerWinner(int playerNumber)
@@ -231,8 +250,6 @@ public class RoundManager : MonoBehaviour
 			m_Player2WinBanner.enabled = true;
 			Player2Score += 1;
 		}
-		audio.clip = m_CelebrationAudio;
-		audio.Play();
 	}
 
 	IEnumerator TurnOnPlayerControls()
@@ -254,4 +271,19 @@ public class RoundManager : MonoBehaviour
 		}
 
 	}
+
+    void pausePlayers()
+    {
+        for (int i = 0; i < PlayersList.Length; i++)
+        {
+            PlayersList[i].GetComponent<player1Controler>().enabled = false;
+        }
+    }
+    void unpausePlayers()
+    {
+        for (int i = 0; i < PlayersList.Length; i++)
+        {
+            PlayersList[i].GetComponent<player1Controler>().enabled = true;
+        }
+    }
 }
