@@ -12,11 +12,11 @@ public class RespawnScript : MonoBehaviour {
     GameObject[] m_players;
 
     public AudioClip m_DeathAudio;
-    AudioSource audio;
+    AudioSource m_audio;
 
     void Awake()
     {
-        audio = GetComponent<AudioSource>();
+		m_audio = GetComponent<AudioSource>();
     }
 
 	void Start()
@@ -64,8 +64,8 @@ public class RespawnScript : MonoBehaviour {
 
     void PlayDeathSound()
     {
-        audio.clip = m_DeathAudio;
-        audio.volume = 1.0f;
-        audio.Play();
+		m_audio.clip = m_DeathAudio;
+		m_audio.volume = 1.0f;
+		m_audio.Play();
     }
 }

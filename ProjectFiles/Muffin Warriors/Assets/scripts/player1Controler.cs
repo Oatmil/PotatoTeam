@@ -63,11 +63,15 @@ public class player1Controler : MonoBehaviour
     [HideInInspector]
     public bool GetBlocked = false;
 
-
+    void Awake()
+    {
+        Debug.Log(PlayerNumber);
+    }
 
     // Use this for initialization
     void Start()
     {
+        Debug.Log(PlayerNumber);
         blockCharge = MaxBlockingCharge;
         m_knockBack = GetComponent<KnockBackValues>();
         tempFlapCD = FlapCD;
