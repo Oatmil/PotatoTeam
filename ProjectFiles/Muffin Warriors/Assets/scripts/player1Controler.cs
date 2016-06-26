@@ -94,13 +94,24 @@ public class player1Controler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
+        vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
+
         if (CanMove == true)
         {
-            horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
-            vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
+           
 
             Vector3 movement = new Vector3(horizontal, 0, 0);
-
+            if (horizontal > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (horizontal < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            
             if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
                 if (!jumpKey)
@@ -158,7 +169,7 @@ public class player1Controler : MonoBehaviour
             //{
             //    rig2D.velocity = Vector3.zero;
             //}
-            ScaleCheck();
+           // ScaleCheck();
         }
 
         else if (CanMove == false)
@@ -192,6 +203,7 @@ public class player1Controler : MonoBehaviour
         else
             transform.localScale = Vector3.one;
     }
+   
 
     void AttackInput()
     {

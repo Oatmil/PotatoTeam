@@ -13,6 +13,7 @@ public class ResetButton : MonoBehaviour {
 
     public void ChangeScene()
     {
+        Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevel);
     }
     public void ExitGame()
