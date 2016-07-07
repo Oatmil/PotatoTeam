@@ -22,11 +22,13 @@ public class RoundManager : MonoBehaviour
 	float tempPreRound;
 
 	AudioSource audio;
-	public Image m_ReadyRoundImage;
-	public Image m_StartRoundImage;
-	public Image m_RoundOverImage;
-	public Image m_Player1WinBanner;
-	public Image m_Player2WinBanner;
+	public GameObject m_ReadyRoundImage;
+    public GameObject m_StartRoundImage;
+    public GameObject m_RoundOverImage;
+    public GameObject m_Player1WinBanner;
+    public GameObject m_Player2WinBanner;
+    public GameObject m_PlayerDrawBanner;
+
 
 	public AudioClip m_StartRoundAudio;
 	public AudioClip m_Last10Seconds;
@@ -69,13 +71,13 @@ public class RoundManager : MonoBehaviour
 
 		if (PreRoundCountDown > 1.0f && MatchStarted == false)
 		{
-			m_ReadyRoundImage.enabled = true;
+			m_ReadyRoundImage.SetActive(true);
 		}
 		if (PreRoundCountDown < 1.0f && MatchStarted == false)
 		{
-			m_ReadyRoundImage.enabled = false;
+            m_ReadyRoundImage.SetActive(false);
 			audio.clip = m_StartRoundAudio;
-			m_StartRoundImage.enabled = true;
+            m_StartRoundImage.SetActive(true);
 			if (audio.isPlaying == false)
 			{
 				audio.Play();
@@ -83,7 +85,7 @@ public class RoundManager : MonoBehaviour
 		}
 		if (MatchStarted == true)
 		{
-			m_StartRoundImage.enabled = false;
+            m_StartRoundImage.SetActive(false);
 		}
 
 		if (RoundCountDown <= 10 && RoundCountDown >1.0f)
@@ -132,7 +134,7 @@ public class RoundManager : MonoBehaviour
 			m_TimerCanvas.text = "timer : \n" + RoundCountDown.ToString("f2");
 			yield return null;
 		}
-		m_RoundOverImage.enabled = true;
+        m_RoundOverImage.SetActive(true);
 		audio.clip = m_RoundEndAudio;
 		if (audio.isPlaying == false)
 		{
@@ -167,9 +169,10 @@ public class RoundManager : MonoBehaviour
 		RoundCountDown = tempRound;
 		PreRoundCountDown = tempPreRound;
 		MatchStarted = false;
-		m_RoundOverImage.enabled = false;
-		m_Player1WinBanner.enabled = false;
-		m_Player2WinBanner.enabled = false;
+        m_RoundOverImage.SetActive(false);
+        m_Player1WinBanner.SetActive(false);
+        m_Player2WinBanner.SetActive(false);
+        m_PlayerDrawBanner.SetActive(false);
 		StartCoroutine(RoundIntro(CurrentTime));
 		int[] PlayerNum = new int[2];
 		for (int i = 0; i < PlayersList.Length; i++)
@@ -216,6 +219,7 @@ public class RoundManager : MonoBehaviour
 			else
 			{
 				m_TimerCanvas.text = "Tied";
+                m_PlayerDrawBanner.SetActive(true);
 			}
 			deaths[j] = 0;
 			deaths[j + 1] = 0;
@@ -226,12 +230,12 @@ public class RoundManager : MonoBehaviour
 	{
 		if (playerNumber == 1)
 		{
-			m_Player1WinBanner.enabled = true;
+            m_Player1WinBanner.SetActive(true);
 			Player1Score += 1;
 		}
 		else if (playerNumber == 2)
 		{
-			m_Player2WinBanner.enabled = true;
+            m_Player2WinBanner.SetActive(true);
 			Player2Score += 1;
 		}
         audio.clip = m_CelebrationAudio;
@@ -242,12 +246,12 @@ public class RoundManager : MonoBehaviour
 	{
 		if (playerNumber == 1)
 		{
-			m_Player1WinBanner.enabled = true;
+            m_Player1WinBanner.SetActive (true);
 			Player1Score += 1;
 		}
 		else if (playerNumber == 2)
 		{
-			m_Player2WinBanner.enabled = true;
+            m_Player2WinBanner.SetActive(true);
 			Player2Score += 1;
 		}
 	}

@@ -8,10 +8,24 @@ public class DamageScript : MonoBehaviour
     Text textBanner;
     BannerScript Banner;
     CameraScript GameCamera;
+    Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[42];
 
     void Awake()
     {
         GameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+        for (int i = 0; i < m_moveObject.Length; i++)
+        {
+            GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentObject");
+            m_moveObject[i] = tempObject[i].GetComponent<Environment_BottleAndJar>();
+        }
+    }
+    void bounceObjects()
+    {
+        for (int i = 0; i < m_moveObject.Length; i++)
+        {
+            if(m_moveObject[i] != null)
+                m_moveObject[i].bounce();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -53,6 +67,7 @@ public class DamageScript : MonoBehaviour
                     }
                     else
                     {
+                        bounceObjects();
                         Banner.FadeDuration = 1.0f;
                         tempBanner.text = "hit";
                         GameCamera.ScreenShake = true;

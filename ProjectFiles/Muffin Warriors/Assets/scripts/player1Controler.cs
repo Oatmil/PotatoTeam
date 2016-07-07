@@ -103,7 +103,7 @@ public class player1Controler : MonoBehaviour
            
 
             Vector3 movement = new Vector3(horizontal, 0, 0);
-            if (horizontal > 0)
+     /*       if (horizontal > 0)
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
@@ -111,7 +111,7 @@ public class player1Controler : MonoBehaviour
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
-            
+            */
             if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
                 if (!jumpKey)
@@ -169,7 +169,7 @@ public class player1Controler : MonoBehaviour
             //{
             //    rig2D.velocity = Vector3.zero;
             //}
-           // ScaleCheck();
+            ScaleCheck();
         }
 
         else if (CanMove == false)

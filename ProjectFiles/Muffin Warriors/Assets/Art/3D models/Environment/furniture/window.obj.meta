@@ -7,11 +7,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: OptionalObj039
     100002: //RootNode
+    100004: window
     400000: OptionalObj039
     400002: //RootNode
+    400004: window
     2300000: OptionalObj039
+    2300002: window
     3300000: OptionalObj039
+    3300002: window
     4300000: OptionalObj039
+    4300002: window
   materials:
     importMaterials: 1
     materialName: 0
