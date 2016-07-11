@@ -35,6 +35,8 @@ public class RoundManager : MonoBehaviour
 	public AudioClip m_RoundEndAudio;
 	public AudioClip m_CelebrationAudio;
 
+    int PrevLight;
+
 
 	void Awake()
 	{
@@ -104,6 +106,7 @@ public class RoundManager : MonoBehaviour
 
 	IEnumerator RoundIntro(float CurrentTime)
 	{
+        RandomStageLights();
 		while (PreRoundCountDown >= 0)
 		{
 			StartCoroutine(TurnOffPlayerControls());
@@ -290,4 +293,56 @@ public class RoundManager : MonoBehaviour
             PlayersList[i].GetComponent<player1Controler>().enabled = true;
         }
     }
+
+    void RandomStageLights()
+    {
+        int randomlight;
+        do
+        {
+            randomlight = Random.Range(0, 5);
+        } while (randomlight == PrevLight);
+
+        PrevLight = randomlight;
+        Debug.Log(PrevLight + " " + randomlight);
+        int j = randomlight * 4;
+        GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentLights");
+        for (int i = 0; i < tempObject.Length; i++)
+        {
+            Light lit = tempObject[i].GetComponent<Light>();
+            lit.color = m_lightColors[i + j];
+            lit.intensity = m_lightIntensity[i + j];
+        }
+    }
+
+
+    // lighting setting for editor and saving
+    public Color[] m_lightColors = new Color[20];
+    [HideInInspector]
+    public float[] m_lightIntensity = new float[20];
+    public int m_EnvironmentNumber;
+    
+    public void PreviewEnvironment()
+    {
+        int j = m_EnvironmentNumber * 4;
+        GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentLights");
+        for (int i = 0; i < tempObject.Length; i++)
+        {
+            Light lit = tempObject[i].GetComponent<Light>();
+            lit.color = m_lightColors[i+j];
+            lit.intensity = m_lightIntensity[i+ j];
+        }
+    }
+
+    public void SaveEnvironment()
+    {
+        int j = m_EnvironmentNumber * 4;
+        GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentLights");
+        for (int i = 0; i < tempObject.Length; i++)
+        {
+            Light lit = tempObject[i].GetComponent<Light>();
+            m_lightColors[i+ j] = lit.color;
+            m_lightIntensity[i+ j] = lit.intensity;
+        }
+    }
+
 }

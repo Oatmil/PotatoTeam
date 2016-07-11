@@ -8,17 +8,23 @@ public class DamageScript : MonoBehaviour
     Text textBanner;
     BannerScript Banner;
     CameraScript GameCamera;
-    Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[42];
+    Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[40];
 
     void Awake()
     {
         GameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+        
+    }
+
+    void Start()
+    {
         for (int i = 0; i < m_moveObject.Length; i++)
         {
             GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentObject");
             m_moveObject[i] = tempObject[i].GetComponent<Environment_BottleAndJar>();
         }
     }
+
     void bounceObjects()
     {
         for (int i = 0; i < m_moveObject.Length; i++)
@@ -39,7 +45,10 @@ public class DamageScript : MonoBehaviour
             {
                 if (!PlayerController.damage) // see if he can take damage or not
                 {
-                    if (PlayerController.horizontal * col.transform.root.localScale.x < -0.2f && PlayerController.up == false && PlayerController.blockCharge > 0)
+                    if (PlayerController.OnBlock == true &&
+                        col.transform.root.localScale.x * transform.root.localScale.x <0 && 
+                        PlayerController.up == false && 
+                        PlayerController.blockCharge > 0)
                     {
                         PlayerController.block = true;
                         Banner.SetExplosionON();

@@ -28,13 +28,14 @@ public class player1Controler : MonoBehaviour
 
     public float BlockingRechargeTimer; ///Timetaken to recharge the blocking
     public float JumpForce = 20; ///force of jump
-    public float FlapForce; /// force of flap
-    public float FlapCD; /// cool down forFlapping
-    float tempFlapCD;
+    public int m_FlapTimes; /// cool down forFlapping
+    public int tempFlapTimes = 0;
     float jmpForce;
-    bool jumpKey; /// checking of jump
+
+    [HideInInspector]
+    public bool jumpKey; /// checking of jump
     bool falling; /// cheking of falling
-     [HideInInspector]
+    [HideInInspector]
     public bool onGround; /// checking on ground
     bool allowMovement; /// to allow movement
 
@@ -47,6 +48,7 @@ public class player1Controler : MonoBehaviour
     //public float m_knockBack;
     public bool damage;
     public bool block;
+    public bool OnBlock;
     public float noDamage = 1;
     float noDamageTimer;
     public float noblock;
@@ -63,6 +65,11 @@ public class player1Controler : MonoBehaviour
     [HideInInspector]
     public bool GetBlocked = false;
 
+    public float m_FallingGravity;
+    float m_OriginalGravity;
+
+
+
     void Awake()
     {
         Debug.Log(PlayerNumber);
@@ -74,8 +81,10 @@ public class player1Controler : MonoBehaviour
         Debug.Log(PlayerNumber);
         blockCharge = MaxBlockingCharge;
         m_knockBack = GetComponent<KnockBackValues>();
-        tempFlapCD = FlapCD;
+
         rig2D = GetComponent<Rigidbody2D>();
+        m_OriginalGravity = rig2D.gravityScale;
+
         anim = GetComponentInChildren<Animator>();
 
         jmpForce = JumpForce;
@@ -100,18 +109,26 @@ public class player1Controler : MonoBehaviour
 
         if (CanMove == true)
         {
-           
+
+            if (Input.GetButton("Block" + PlayerNumber.ToString()) && crouch == false && up == false)
+            {
+                OnBlock = true;
+            }
+            else
+            {
+                OnBlock = false;
+            }
 
             Vector3 movement = new Vector3(horizontal, 0, 0);
-     /*       if (horizontal > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (horizontal < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            */
+                   if (horizontal > 0)
+                   {
+                       transform.localScale = new Vector3(1, 1, 1);
+                   }
+                   else if (horizontal < 0)
+                   {
+                       transform.localScale = new Vector3(-1, 1, 1);
+                   }
+                   
             if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
                 if (!jumpKey)
@@ -119,11 +136,19 @@ public class player1Controler : MonoBehaviour
                     rig2D.velocity = new Vector2(rig2D.velocity.x, jmpForce);
                     jumpKey = true;
                 }
-                else if (FlapCD < 0)
+                else if (tempFlapTimes < m_FlapTimes)
                 {
-                    rig2D.velocity = new Vector2(rig2D.velocity.x, FlapForce);
-                    FlapCD = tempFlapCD;
+                    rig2D.velocity = new Vector2(rig2D.velocity.x, jmpForce);
+                    tempFlapTimes += 1;
                 }
+            }
+            if (Input.GetButton("Jump" + PlayerNumber.ToString()) && crouch == false)
+            {
+                rig2D.gravityScale = m_FallingGravity;
+            }
+            else
+            {
+                rig2D.gravityScale = m_OriginalGravity;
             }
 
             //if (vertical > 0.1f)
@@ -148,6 +173,8 @@ public class player1Controler : MonoBehaviour
             {
                 crouch = (vertical < -0.1f);
                 up = (vertical > 0.5f);
+                rig2D.gravityScale = m_OriginalGravity;
+                tempFlapTimes = 0;
             }
 
             if (!onGround)
@@ -169,7 +196,7 @@ public class player1Controler : MonoBehaviour
             //{
             //    rig2D.velocity = Vector3.zero;
             //}
-            ScaleCheck();
+            //ScaleCheck();
         }
 
         else if (CanMove == false)
@@ -179,7 +206,6 @@ public class player1Controler : MonoBehaviour
         }
 
         // Debug.Log(MoveTimer + " " + PlayerNumber);
-        FlapCD -= Time.deltaTime;
         AttackInput();
         Damage();
         Block();
@@ -203,27 +229,27 @@ public class player1Controler : MonoBehaviour
         else
             transform.localScale = Vector3.one;
     }
-   
+
 
     void AttackInput()
     {
         if (Input.GetButtonDown("Attack1" + PlayerNumber.ToString()))
         {
-                if (vertical > 0.1f && onGround)// used for the upattack
+            if (vertical > 0.1f && onGround)// used for the upattack
+            {
+                Debug.Log("up attack");
+                if (transform.position.x < enemy.position.x)
                 {
-                    Debug.Log("up attack");
-                    if (transform.position.x < enemy.position.x)
-                    {
-                        rig2D.velocity = (new Vector2(20, JumpForce));
-                    }
-                    else
-                    {
-                        rig2D.velocity = (new Vector2(-1 * 20, JumpForce));
-                    }
+                    rig2D.velocity = (new Vector2(20, JumpForce));
                 }
-                attack[0] = true;
-                attacktimer[0] = 0;
-                timesPressed[0]++;
+                else
+                {
+                    rig2D.velocity = (new Vector2(-1 * 20, JumpForce));
+                }
+            }
+            attack[0] = true;
+            attacktimer[0] = 0;
+            timesPressed[0]++;
         }
 
         if (attack[0])
@@ -269,7 +295,7 @@ public class player1Controler : MonoBehaviour
         {
             CanMove = false;
             noDamageTimer += Time.deltaTime;
-
+            OnBlock = false;
             if (noDamageTimer > noDamage)
             {
                 damage = false;
@@ -322,7 +348,7 @@ public class player1Controler : MonoBehaviour
 
     void Block()
     {
-        if (block && blockCharge > 0)
+        if (block && blockCharge > 0 && OnBlock)
         {
             Vector3 dir = enemy.position - transform.position;
             rig2D.velocity = Vector3.zero;
@@ -362,7 +388,7 @@ public class player1Controler : MonoBehaviour
             CanMove = false;
         anim.SetBool("Attack1", attack[0]);
         anim.SetInteger("AttackInt", timesPressed[0]);
-        anim.SetBool("Blocking", block);
+        anim.SetBool("Blocking", OnBlock);
         //anim.SetInteger("AttackInt", timesPressed[0]);
     }
 
