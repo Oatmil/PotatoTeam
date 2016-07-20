@@ -425,4 +425,11 @@ public class player1Controler : MonoBehaviour
             onGround = false;
         }
     }
+
+    public void HazardKnock(Vector3 m_HazardKnockBack, int HitDir)
+    {
+        CanMove = false;
+        OnBlock = false;
+        rig2D.AddForce(new Vector3(HitDir * m_HazardKnockBack.x, m_HazardKnockBack.y, m_HazardKnockBack.z));
+    }
 }
