@@ -5,6 +5,7 @@ public class ResetButton : MonoBehaviour {
 
     public bool m_Pause = false;
     public GameObject m_PauseEndGameCanvas;
+    public GameObject m_GameOverCanvas;
 
     void Start()
     {
@@ -34,5 +35,9 @@ public class ResetButton : MonoBehaviour {
             m_Pause = true;
             m_PauseEndGameCanvas.SetActive(true);
         }
+    }
+    public void GameOver()
+    {
+        m_GameOverCanvas.SetActive(true);
     }
 }

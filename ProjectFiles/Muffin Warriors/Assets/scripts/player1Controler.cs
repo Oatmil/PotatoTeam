@@ -238,7 +238,7 @@ public class player1Controler : MonoBehaviour
             if (vertical > 0.1f && onGround)// used for the upattack
             {
                 Debug.Log("up attack");
-                if (transform.position.x < enemy.position.x)
+                if (transform.localScale.x > 0)
                 {
                     rig2D.velocity = (new Vector2(20, JumpForce));
                 }

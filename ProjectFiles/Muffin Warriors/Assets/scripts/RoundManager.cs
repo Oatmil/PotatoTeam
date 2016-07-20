@@ -36,7 +36,8 @@ public class RoundManager : MonoBehaviour
 	public AudioClip m_CelebrationAudio;
 
     int PrevLight;
-
+    EnvironmentParticle m_Particle;
+    HazardScript m_Hazard;
 
 	void Awake()
 	{
@@ -58,6 +59,8 @@ public class RoundManager : MonoBehaviour
 				}
 			}
 		}
+        m_Particle = GameObject.FindGameObjectWithTag("EnvironmentParticle").GetComponent<EnvironmentParticle>();
+        m_Hazard = GameObject.FindGameObjectWithTag("EnvironmentHazard").GetComponent<HazardScript>();
 	}
 	void Start()
 	{
@@ -124,6 +127,10 @@ public class RoundManager : MonoBehaviour
 	{
 		while (RoundCountDown >= 0)
 		{
+            if (RoundCountDown <= 15)
+            {
+                m_Hazard.SetHazard(2); // begin hazard
+            }
             if (Time.timeScale == 0)
             {
                 pausePlayers();
@@ -134,9 +141,10 @@ public class RoundManager : MonoBehaviour
                 unpausePlayers();
                 RoundCountDown -= CurrentTime;
             }
-			m_TimerCanvas.text = "timer : \n" + RoundCountDown.ToString("f2");
+			m_TimerCanvas.text = RoundCountDown.ToString("f2");
 			yield return null;
 		}
+        m_Hazard.SetHazard(5); // stop the hazard
         m_RoundOverImage.SetActive(true);
 		audio.clip = m_RoundEndAudio;
 		if (audio.isPlaying == false)
@@ -145,7 +153,6 @@ public class RoundManager : MonoBehaviour
 		}
 		StartCoroutine(TurnOffPlayerControls());
 
-		m_TimerCanvas.text = "The Results \n Are In";
 		yield return new WaitForSeconds(2.0f);
 		RoundEnd();
 		yield return new WaitForSeconds(3.0f);
@@ -153,13 +160,13 @@ public class RoundManager : MonoBehaviour
 		{
 			EndGamePlayerWinner(1);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.Pause();
+            m_managerScript.GameOver();
 		}
 		else if (Player2Score == 2)
 		{
 			EndGamePlayerWinner(2);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.Pause();
+            m_managerScript.GameOver();
             
 		}
 		else if (Player1Score != 2 && Player2Score != 2)
@@ -207,21 +214,21 @@ public class RoundManager : MonoBehaviour
 		{
 			if (deaths[j] < deaths[j + 1])
 			{
-				m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j].ToString("f0") + "\n Takes It";
+				//m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j].ToString("f0") + "\n Takes It";
 				PlayersList[j].GetComponent<WinLoseAnimationController>().Win = true;
 				CheckPlayerWinner(PlayerNum[j]);
 				PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Lose = true;
 			}
 			else if(deaths[j]>deaths[j+1])
 			{
-				m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j + 1].ToString("f0") + "\n Takes It";
+				//m_TimerCanvas.text = "Round " + RoundCounter.ToString() + "\n Player " + PlayerNum[j + 1].ToString("f0") + "\n Takes It";
 				PlayersList[j].GetComponent<WinLoseAnimationController>().Lose = true;
 				CheckPlayerWinner(PlayerNum[j + 1]);
 				PlayersList[j + 1].GetComponent<WinLoseAnimationController>().Win = true;
 			}
 			else
 			{
-				m_TimerCanvas.text = "Tied";
+				//m_TimerCanvas.text = "Tied";
                 m_PlayerDrawBanner.SetActive(true);
 			}
 			deaths[j] = 0;
@@ -303,7 +310,8 @@ public class RoundManager : MonoBehaviour
         } while (randomlight == PrevLight);
 
         PrevLight = randomlight;
-        Debug.Log(PrevLight + " " + randomlight);
+        m_Particle.SetEnvironment(randomlight);
+        
         int j = randomlight * 4;
         GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentLights");
         for (int i = 0; i < tempObject.Length; i++)
@@ -345,4 +353,23 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    public int CheckingCurrentScore(int m_PlayerNum) // check enemy deaths as own score
+    {
+        int m_ReturnValue = 0;
+
+        int PlayerNum = 0;
+
+        for (int i = 0; i < PlayersList.Length; i++)
+        {
+            PlayerNum = PlayersList[i].GetComponent<player1Controler>().PlayerNumber;
+            if (PlayerNum == m_PlayerNum)
+            {
+                m_ReturnValue = PlayersList[i].GetComponent<player1Controler>().deathCounter;
+                return m_ReturnValue;
+            }
+        }
+        return 0;
+       // Debug.Log("return value " + m_ReturnValue);
+       
+    }
 }
