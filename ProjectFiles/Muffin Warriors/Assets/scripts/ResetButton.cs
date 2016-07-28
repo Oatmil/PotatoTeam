@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ResetButton : MonoBehaviour {
@@ -6,10 +7,15 @@ public class ResetButton : MonoBehaviour {
     public bool m_Pause = false;
     public GameObject m_PauseEndGameCanvas;
     public GameObject m_GameOverCanvas;
+    public Text m_GameOverText;
+
+    RoundManager m_manager;
+
 
     void Start()
     {
         //m_PauseEndGameCanvas.SetActive(false);
+        m_manager = GetComponent<RoundManager>();
     }
 
     public void ChangeScene()
@@ -36,8 +42,15 @@ public class ResetButton : MonoBehaviour {
             m_PauseEndGameCanvas.SetActive(true);
         }
     }
-    public void GameOver()
+    public void GameOver(int totalDeath)
     {
         m_GameOverCanvas.SetActive(true);
+        m_GameOverText.text = totalDeath.ToString();
+    }
+
+    public void Rematch()
+    {
+        m_manager.SetRematch();
+        m_GameOverCanvas.SetActive(false);
     }
 }

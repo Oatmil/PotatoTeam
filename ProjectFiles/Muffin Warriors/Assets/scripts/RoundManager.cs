@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class RoundManager : MonoBehaviour
 {
     ResetButton m_managerScript;
+    BgmSound m_BGMAudio;
 	public Text m_TimerCanvas;
 
 	GameObject[] PlayersList = new GameObject[2];
@@ -29,7 +30,6 @@ public class RoundManager : MonoBehaviour
     public GameObject m_Player2WinBanner;
     public GameObject m_PlayerDrawBanner;
 
-
 	public AudioClip m_StartRoundAudio;
 	public AudioClip m_Last10Seconds;
 	public AudioClip m_RoundEndAudio;
@@ -38,6 +38,9 @@ public class RoundManager : MonoBehaviour
     int PrevLight;
     EnvironmentParticle m_Particle;
     HazardScript m_Hazard;
+    Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[40];
+
+    public int m_TotalDeaths;
 
 	void Awake()
 	{
@@ -64,12 +67,20 @@ public class RoundManager : MonoBehaviour
 	}
 	void Start()
 	{
+        m_BGMAudio = GameObject.FindGameObjectWithTag("Sounds").GetComponent<BgmSound>();
 		tempPreRound = PreRoundCountDown;
 		tempRound = RoundCountDown;
 		StartCoroutine(TurnOnPlayerControls());
 		StartCoroutine(RoundIntro(Time.deltaTime));
         m_managerScript = transform.GetComponent<ResetButton>();
+        for (int i = 0; i < m_moveObject.Length; i++)
+        {
+            GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentObject");
+            m_moveObject[i] = tempObject[i].GetComponent<Environment_BottleAndJar>();
+        }
+        
 	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -105,6 +116,7 @@ public class RoundManager : MonoBehaviour
 		{
 
 		}
+
 	}
 
 	IEnumerator RoundIntro(float CurrentTime)
@@ -156,17 +168,18 @@ public class RoundManager : MonoBehaviour
 		yield return new WaitForSeconds(2.0f);
 		RoundEnd();
 		yield return new WaitForSeconds(3.0f);
+        ResetBottles();
 		if (Player1Score == 2)
 		{
 			EndGamePlayerWinner(1);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver();
+            m_managerScript.GameOver(m_TotalDeaths);
 		}
 		else if (Player2Score == 2)
 		{
 			EndGamePlayerWinner(2);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver();
+            m_managerScript.GameOver(m_TotalDeaths);
             
 		}
 		else if (Player1Score != 2 && Player2Score != 2)
@@ -200,6 +213,36 @@ public class RoundManager : MonoBehaviour
 		}
 	}
 
+    public void SetRematch()
+    {
+        Player1Score = 0;
+        Player2Score = 0;
+        m_TotalDeaths = 0;
+
+        RoundCountDown = tempRound;
+        PreRoundCountDown = tempPreRound;
+        MatchStarted = false;
+        m_RoundOverImage.SetActive(false);
+        m_Player1WinBanner.SetActive(false);
+        m_Player2WinBanner.SetActive(false);
+        m_PlayerDrawBanner.SetActive(false);
+        StartCoroutine(RoundIntro(Time.deltaTime));
+        int[] PlayerNum = new int[2];
+        for (int i = 0; i < PlayersList.Length; i++)
+        {
+            PlayersList[i].GetComponent<WinLoseAnimationController>().Reset = true;
+            if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 1)
+            {
+                PlayersList[0].transform.position = Player1Pos;
+            }
+            else if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 2)
+            {
+                PlayersList[1].transform.position = Player2Pos;
+            }
+            PlayersList[i].GetComponent<player1Controler>().deathCounter = 0;
+        }
+    }
+
 	void RoundEnd()
 	{
 		int[] deaths = new int[2];
@@ -231,6 +274,7 @@ public class RoundManager : MonoBehaviour
 				//m_TimerCanvas.text = "Tied";
                 m_PlayerDrawBanner.SetActive(true);
 			}
+            m_TotalDeaths += deaths[j] + deaths[j + 1];
 			deaths[j] = 0;
 			deaths[j + 1] = 0;
 		}
@@ -311,7 +355,8 @@ public class RoundManager : MonoBehaviour
 
         PrevLight = randomlight;
         m_Particle.SetEnvironment(randomlight);
-        
+        m_BGMAudio.SetAudio(randomlight);
+
         int j = randomlight * 4;
         GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentLights");
         for (int i = 0; i < tempObject.Length; i++)
@@ -322,6 +367,14 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    void ResetBottles()
+    {
+        for (int i = 0; i < m_moveObject.Length; i++)
+        {
+            if (m_moveObject[i] != null)
+                m_moveObject[i].reSetPos();
+        }
+    }
 
     // lighting setting for editor and saving
     public Color[] m_lightColors = new Color[20];

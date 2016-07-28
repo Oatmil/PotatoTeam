@@ -30,8 +30,10 @@ public class RespawnScript : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col)
 	{
         PlayDeathSound();
-		Instantiate (m_DeathBoom, col.transform.root.position, Quaternion.identity);
-		RandomSpawnPoint (col);
+        GameObject tempObj = GameObject.Instantiate(m_DeathBoom, col.transform.root.position, Quaternion.identity) as GameObject;
+        RandomSpawnPoint(col);
+        tempObj.GetComponent<ParticleSystemAutodisable>().m_SuckPos = col.gameObject;
+
         col.transform.GetComponent<player1Controler>().deathCounter += 1;
 
 	}

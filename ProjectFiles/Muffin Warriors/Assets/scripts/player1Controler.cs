@@ -131,7 +131,7 @@ public class player1Controler : MonoBehaviour
                    
             if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
-                if (!jumpKey)
+                if (!jumpKey && onGround == true)
                 {
                     rig2D.velocity = new Vector2(rig2D.velocity.x, jmpForce);
                     jumpKey = true;
@@ -183,7 +183,7 @@ public class player1Controler : MonoBehaviour
                 up = false;
             }
 
-            if (up)
+            if (up || OnBlock)
             {
                 movement.x = 0;
             }
