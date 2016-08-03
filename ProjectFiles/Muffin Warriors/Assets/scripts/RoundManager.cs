@@ -139,7 +139,7 @@ public class RoundManager : MonoBehaviour
 	{
 		while (RoundCountDown >= 0)
 		{
-            if (RoundCountDown <= 15)
+            if (RoundCountDown <= 25)
             {
                 m_Hazard.SetHazard(PrevLight); // begin hazard
             }

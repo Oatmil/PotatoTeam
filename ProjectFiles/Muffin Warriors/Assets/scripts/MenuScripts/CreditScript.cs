@@ -31,12 +31,20 @@ public class CreditScript : MonoBehaviour {
             m_time = 0;
             if(m_showname < m_credit.Length-1)
                 m_showname++;
+            else if (m_showname == m_credit.Length -1 )
+            {
+                m_showname = 0;
+            }
         }
         if (Input.GetButtonDown("Block1") || Input.GetButtonDown("Block2"))
         {
             m_time = 0;
             if(m_showname > 0)
                 m_showname--;
+            else if (m_showname == 0)
+            {
+                m_showname = m_credit.Length-1;
+            }
         }
 
         for (int i = 0; i < m_credit.Length; i++)
