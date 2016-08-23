@@ -35,7 +35,9 @@ public class RoundManager : MonoBehaviour
 	public AudioClip m_RoundEndAudio;
 	public AudioClip m_CelebrationAudio;
 
-    int PrevLight;
+    static int PrevLight1 = 10;
+    static int PrevLight2 = 10;
+
     EnvironmentParticle m_Particle;
     HazardScript m_Hazard;
     Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[40];
@@ -71,7 +73,7 @@ public class RoundManager : MonoBehaviour
 		tempPreRound = PreRoundCountDown;
 		tempRound = RoundCountDown;
 		StartCoroutine(TurnOnPlayerControls());
-		StartCoroutine(RoundIntro(Time.deltaTime));
+		StartCoroutine(RoundIntro());
         m_managerScript = transform.GetComponent<ResetButton>();
         for (int i = 0; i < m_moveObject.Length; i++)
         {
@@ -119,29 +121,29 @@ public class RoundManager : MonoBehaviour
 
 	}
 
-	IEnumerator RoundIntro(float CurrentTime)
+	IEnumerator RoundIntro()
 	{
         RandomStageLights();
 		while (PreRoundCountDown >= 0)
 		{
 			StartCoroutine(TurnOffPlayerControls());
-            PreRoundCountDown -= CurrentTime;
+			PreRoundCountDown -= Time.deltaTime;
             
 			m_TimerCanvas.text = "READY!";
 			yield return null;
 		}
 		MatchStarted = true;
 		RoundCounter += 1;
-		StartCoroutine(RoundRunning(CurrentTime));
+		StartCoroutine(RoundRunning());
 	}
 
-	IEnumerator RoundRunning(float CurrentTime)
+	IEnumerator RoundRunning()
 	{
 		while (RoundCountDown >= 0)
 		{
             if (RoundCountDown <= 25)
             {
-                m_Hazard.SetHazard(PrevLight); // begin hazard
+                m_Hazard.SetHazard(PrevLight1); // begin hazard
             }
             if (Time.timeScale == 0)
             {
@@ -151,7 +153,7 @@ public class RoundManager : MonoBehaviour
             else
             {
                 unpausePlayers();
-                RoundCountDown -= CurrentTime;
+				RoundCountDown -= Time.deltaTime;
             }
 			m_TimerCanvas.text = RoundCountDown.ToString("f2");
 			yield return null;
@@ -184,10 +186,10 @@ public class RoundManager : MonoBehaviour
 		}
 		else if (Player1Score != 2 && Player2Score != 2)
 		{
-			ResetRound(CurrentTime);
+			ResetRound();
 		}
 	}
-	void ResetRound(float CurrentTime)
+	void ResetRound()
 	{
 		RoundCountDown = tempRound;
 		PreRoundCountDown = tempPreRound;
@@ -196,7 +198,7 @@ public class RoundManager : MonoBehaviour
         m_Player1WinBanner.SetActive(false);
         m_Player2WinBanner.SetActive(false);
         m_PlayerDrawBanner.SetActive(false);
-		StartCoroutine(RoundIntro(CurrentTime));
+		StartCoroutine(RoundIntro());
 		int[] PlayerNum = new int[2];
 		for (int i = 0; i < PlayersList.Length; i++)
 		{
@@ -226,7 +228,7 @@ public class RoundManager : MonoBehaviour
         m_Player1WinBanner.SetActive(false);
         m_Player2WinBanner.SetActive(false);
         m_PlayerDrawBanner.SetActive(false);
-        StartCoroutine(RoundIntro(Time.deltaTime));
+        StartCoroutine(RoundIntro());
         int[] PlayerNum = new int[2];
         for (int i = 0; i < PlayersList.Length; i++)
         {
@@ -351,9 +353,10 @@ public class RoundManager : MonoBehaviour
         do
         {
             randomlight = Random.Range(0, 5);
-        } while (randomlight == PrevLight);
+        } while (randomlight == PrevLight1 || randomlight == PrevLight2);
+        PrevLight2 = PrevLight1;
+        PrevLight1 = randomlight;
 
-        PrevLight = randomlight;
         m_Particle.SetEnvironment(randomlight);
         m_BGMAudio.SetAudio(randomlight);
 

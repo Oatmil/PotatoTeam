@@ -36,6 +36,8 @@ public class RespawnScript : MonoBehaviour {
 
         col.transform.GetComponent<player1Controler>().deathCounter += 1;
 
+        col.transform.GetComponent<player1Controler>().deathCounter += 1;
+        col.transform.GetComponent<player1Controler>().tempFlapTimes = 10;
 	}
 
     //void findPlayer(Collider2D col)

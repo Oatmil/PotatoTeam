@@ -7,6 +7,10 @@ public class CreditScript : MonoBehaviour {
     public float m_slightShow;
     float m_time;
 
+    // for analog movement
+    public float m_DelayAnalogTime;
+    float m_Analogtimer;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -44,6 +48,38 @@ public class CreditScript : MonoBehaviour {
             else if (m_showname == 0)
             {
                 m_showname = m_credit.Length-1;
+            }
+        }
+
+        if (Input.GetAxis("Horizontal1") >= 1.0f || Input.GetAxis("Horizontal2") >= 1.0f)
+        {
+            m_Analogtimer += Time.deltaTime;
+            if (m_Analogtimer > m_DelayAnalogTime)
+            {
+                m_time = 0;
+                if (m_showname < m_credit.Length - 1)
+                    m_showname++;
+                else if (m_showname == m_credit.Length - 1)
+                {
+                    m_showname = 0;
+                }
+                m_Analogtimer = 0;
+            }
+        }
+
+        if (Input.GetAxis("Horizontal1") <= -1.0f || Input.GetAxis("Horizontal2") <= -1.0f)
+        {
+            m_Analogtimer += Time.deltaTime;
+            if (m_Analogtimer > m_DelayAnalogTime)
+            {
+                m_time = 0;
+                if (m_showname > 0)
+                    m_showname--;
+                else if (m_showname == 0)
+                {
+                    m_showname = m_credit.Length - 1;
+                }
+                m_Analogtimer = 0;
             }
         }
 

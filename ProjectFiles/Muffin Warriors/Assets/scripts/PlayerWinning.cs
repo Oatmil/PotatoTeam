@@ -12,8 +12,6 @@ public class PlayerWinning : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(m_manager.CheckingCurrentScore(1));
-        Debug.Log(m_manager.CheckingCurrentScore(2));
 
         if (m_PlayerNum == 1)
         {

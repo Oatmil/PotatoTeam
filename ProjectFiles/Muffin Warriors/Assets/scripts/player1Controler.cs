@@ -279,6 +279,22 @@ public class player1Controler : MonoBehaviour
         //}
     }
 
+	int CheckDir(Vector3 pos1, Vector3 pos2)
+	{
+		Vector3 dir = enemy.position - transform.position;
+		int HitDir = 0;
+		if (dir.x > 0)
+		{
+			HitDir = 2;
+		}
+		else if (dir.x < 0)
+		{
+			HitDir = -2;
+		}
+
+		return HitDir;
+	}
+
     void Damage()
     {
         if (GetBlocked == true)
@@ -287,8 +303,8 @@ public class player1Controler : MonoBehaviour
             if (noDamageTimer > noDamage)
             {
                 GetBlocked = false;
-                Vector3 dir = enemy.position - transform.position;
-                rig2D.AddForce(new Vector3(-dir.x * m_knockBack.GetBlocked.x, m_knockBack.GetBlocked.y, m_knockBack.GetBlocked.z));
+				int dir = CheckDir(enemy.position, transform.position);
+                rig2D.AddForce(new Vector3(-dir * m_knockBack.GetBlocked.x, m_knockBack.GetBlocked.y, m_knockBack.GetBlocked.z));
             }
         }
         if (damage)
@@ -304,20 +320,20 @@ public class player1Controler : MonoBehaviour
                 {
                     if (CrouchAttack == true)
                     {
-                        Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.CrouchAttack.x, m_knockBack.CrouchAttack.y, m_knockBack.CrouchAttack.z));
+						int dir = CheckDir(enemy.position, transform.position);
+                        rig2D.AddForce(new Vector3(-dir * m_knockBack.CrouchAttack.x, m_knockBack.CrouchAttack.y, m_knockBack.CrouchAttack.z));
                         Debug.Log("crouch Hit");
                     }
                     else if (InAirAttack == true)
                     {
-                        Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
+						int dir = CheckDir(enemy.position, transform.position);
+                        rig2D.AddForce(new Vector3(-dir * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
                         Debug.Log("hit by air");
                     }
                     else
                     {
-                        Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.IdleAttack.x, m_knockBack.IdleAttack.y, m_knockBack.IdleAttack.z));
+						int dir = CheckDir(enemy.position, transform.position);
+                        rig2D.AddForce(new Vector3(-dir * m_knockBack.IdleAttack.x, m_knockBack.IdleAttack.y, m_knockBack.IdleAttack.z));
                         Debug.Log("onground");
                     }
                     CrouchAttack = false;
@@ -328,14 +344,14 @@ public class player1Controler : MonoBehaviour
                 {
                     if (InAirAttack == true)
                     {
-                        Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
+						int dir = CheckDir(enemy.position, transform.position);
+                        rig2D.AddForce(new Vector3(-dir * m_knockBack.AirAttack.x, m_knockBack.AirAttack.y, m_knockBack.AirAttack.z));
                         Debug.Log("hit by air");
                     }
                     else
                     {
-                        Vector3 dir = enemy.position - transform.position;
-                        rig2D.AddForce(new Vector3(-dir.x * m_knockBack.UpAttack.x, m_knockBack.UpAttack.y, m_knockBack.UpAttack.z));
+						int dir = CheckDir(enemy.position, transform.position);
+                        rig2D.AddForce(new Vector3(-dir * m_knockBack.UpAttack.x, m_knockBack.UpAttack.y, m_knockBack.UpAttack.z));
                         Debug.Log("normal Air no more");
                     }
                     CrouchAttack = false;
@@ -350,7 +366,7 @@ public class player1Controler : MonoBehaviour
     {
         if (block && blockCharge > 0 && OnBlock)
         {
-            Vector3 dir = enemy.position - transform.position;
+			int dir = CheckDir(enemy.position, transform.position);
             rig2D.velocity = Vector3.zero;
             //rig2D.AddForce(new Vector3(-dir.x * m_knockBack.Block.x, m_knockBack.Block.y, m_knockBack.Block.z));
             noDamageTimer += Time.deltaTime;
