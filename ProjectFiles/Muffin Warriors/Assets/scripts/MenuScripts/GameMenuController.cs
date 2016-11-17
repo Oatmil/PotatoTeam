@@ -23,7 +23,7 @@ public class GameMenuController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (player1Pos != m_player1.transform.position)
         {
             m_player1Control.GetComponent<Image>().CrossFadeAlpha(0,0.25f, true);

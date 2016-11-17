@@ -84,7 +84,7 @@ public class RoundManager : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 
 		if (PreRoundCountDown > 1.0f && MatchStarted == false)

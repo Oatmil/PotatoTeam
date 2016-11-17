@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour {
 
+
 	public float heightAdjusment;
 	public float depthAdjustment;
 	public float minimumDepth;
@@ -15,6 +16,7 @@ public class CameraScript : MonoBehaviour {
 	float Distance;
 	Vector3 MidPoint;
 
+    bool m_SlamSlow = false;
 	public bool ScreenSlowMo = false;
 	public float m_SlowMoTime;
 	public float m_TimeScale; /// how slow;

@@ -6,10 +6,6 @@ public class Platform_Selection_Scene1 : MonoBehaviour
     public bool PlayerReady1 = false;
     public bool PlayerReady2 = false;
 
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter2D (Collider2D col)
     {
         player1Controler PlayerController = col.transform.root.GetComponent<player1Controler>();

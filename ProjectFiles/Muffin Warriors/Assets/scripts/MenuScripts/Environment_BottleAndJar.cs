@@ -15,10 +15,6 @@ public class Environment_BottleAndJar : MonoBehaviour {
         DefaultRot = transform.eulerAngles;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void bounce()
     {

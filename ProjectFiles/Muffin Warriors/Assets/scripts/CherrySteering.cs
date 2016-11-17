@@ -24,7 +24,7 @@ public class CherrySteering : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float TempX = target.transform.position.x - transform.position.x;
         float TempY = target.transform.position.y +1.5f - transform.position.y;

@@ -12,7 +12,7 @@ public class ShineRotation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         transform.localEulerAngles += new Vector3(0, 0, m_RotationSpeed);
         transform.localScale = m_OriginalScale * (Mathf.PerlinNoise(Time.time, 1.0f) + m_size);
 	}

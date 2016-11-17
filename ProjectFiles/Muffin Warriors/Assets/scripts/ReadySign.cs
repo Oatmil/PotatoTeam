@@ -15,7 +15,7 @@ public class ReadySign : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if(Platform.PlayerReady1 == true && Platform.PlayerReady2 == true)
         {
             timer += Time.deltaTime;

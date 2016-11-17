@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class RespawnScript : MonoBehaviour {
-
+    public float m_RespawnDelay;
 	public GameObject m_spawnPoint3;
 	public GameObject m_spawnPoint2;
 	public GameObject m_spawnPoint1;
-	public GameObject m_DeathBoom;
+	//public GameObject m_DeathBoom;
 
 	GameObject[] m_SpawnPointsArray = new GameObject[3];
     GameObject[] m_players;
@@ -29,15 +29,20 @@ public class RespawnScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
-        PlayDeathSound();
-        GameObject tempObj = GameObject.Instantiate(m_DeathBoom, col.transform.root.position, Quaternion.identity) as GameObject;
-        RandomSpawnPoint(col);
-        tempObj.GetComponent<ParticleSystemAutodisable>().m_SuckPos = col.gameObject;
+        if (col.transform.tag == "Player")
+        {
+            PlayDeathSound();
+            col.transform.GetComponent<player1Controler>().ResetCharacter();
+            col.transform.GetComponent<player1Controler>().deathCounter += 1;
 
-        col.transform.GetComponent<player1Controler>().deathCounter += 1;
+            col.transform.GetComponent<player1Controler>().deathCounter += 1;
+            col.transform.GetComponent<player1Controler>().tempFlapTimes = 10;
 
-        col.transform.GetComponent<player1Controler>().deathCounter += 1;
-        col.transform.GetComponent<player1Controler>().tempFlapTimes = 10;
+            // GameObject tempObj = GameObject.Instantiate(m_DeathBoom, col.transform.root.position, Quaternion.identity) as GameObject;
+            RandomSpawnPoint(col);
+            //  tempObj.GetComponent<ParticleSystemAutodisable>().m_SuckPos = col.gameObject;
+
+        }
 	}
 
     //void findPlayer(Collider2D col)
@@ -60,9 +65,7 @@ public class RespawnScript : MonoBehaviour {
 
     void RandomSpawnPoint(Collider2D col)
 	{
-		int RanRan = Random.Range (0, m_SpawnPointsArray.Length);
-		col.transform.root.position = m_SpawnPointsArray[RanRan].transform.position;
-	    col.transform.root.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,0,0);
+        StartCoroutine(DelayRespawn(col));
 	}
 
 
@@ -71,5 +74,22 @@ public class RespawnScript : MonoBehaviour {
 		m_audio.clip = m_DeathAudio;
 		m_audio.volume = 1.0f;
 		m_audio.Play();
+    }
+
+    IEnumerator DelayRespawn(Collider2D col)
+    {
+        GameObject tempObject = col.gameObject;
+        tempObject.SetActive(false);
+        float i = 0;
+        while (i < m_RespawnDelay)
+        {
+            i += Time.deltaTime;
+            yield return null;
+        }
+        int RanRan = Random.Range(0, m_SpawnPointsArray.Length);
+        col.transform.root.position = m_SpawnPointsArray[RanRan].transform.position;
+        col.transform.root.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+
+        tempObject.SetActive(true);
     }
 }

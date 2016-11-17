@@ -13,9 +13,9 @@ public class StageSelctionCamera : MonoBehaviour
     int CurrentSelection = 1;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        DelayTimer += Time.deltaTime;
+        DelayTimer += Time.fixedDeltaTime;
         if (DelayTimer > InputDelay)
         {
             nextPrevious = Input.GetAxis("Horizontal");

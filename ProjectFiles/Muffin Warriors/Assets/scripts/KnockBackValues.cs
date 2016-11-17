@@ -10,6 +10,8 @@ public class KnockBackValues : MonoBehaviour
     public Vector3 UpAttack;
     public Vector3 Block;
     public Vector3 GetBlocked;
+    public Vector3 SlamDown;
+
 
     void Start()
     {

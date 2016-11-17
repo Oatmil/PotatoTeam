@@ -10,7 +10,7 @@ public class ControlRepeat : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		canvasTransform.transform.localPosition += new Vector3(0.0f,speed,0.0f);
 		if(canvasTransform.transform.localPosition.y > 280.0f)
 		{

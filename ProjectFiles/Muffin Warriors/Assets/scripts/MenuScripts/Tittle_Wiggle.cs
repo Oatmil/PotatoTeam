@@ -13,7 +13,7 @@ public class Tittle_Wiggle : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         m_PerlinNoiseRot.z = (Mathf.PerlinNoise(Time.time, Time.time)-0.5f )* m_RotationScale;
         transform.localEulerAngles = OriginalRotation + m_PerlinNoiseRot;
 	}

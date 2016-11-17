@@ -17,7 +17,7 @@ public class CreditScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         m_time += Time.deltaTime;
         if (m_time > m_slightShow)
         {

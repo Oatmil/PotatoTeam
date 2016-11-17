@@ -3,6 +3,9 @@ using System.Collections;
 
 public class player1Controler : MonoBehaviour
 {
+
+
+    CameraScript GameCam;
     KnockBackValues m_knockBack;
     [Tooltip("Controller ID player number")]
     public int PlayerNumber = 1;
@@ -39,6 +42,9 @@ public class player1Controler : MonoBehaviour
     public bool onGround; /// checking on ground
     bool allowMovement; /// to allow movement
 
+    public float m_SlamStop;
+    public float m_SlamHold;
+
     public float attackRate = 0.3f; /// duration of checking of attack before setting bool to false
     bool[] attack = new bool[2]; /// cheking for as many attacks as i want just increase the array size
     float[] attacktimer = new float[2]; /// counter before the reset based on the attack rate
@@ -53,10 +59,12 @@ public class player1Controler : MonoBehaviour
     float noDamageTimer;
     public float noblock;
     public bool CanMove = false;
+    public bool m_Slam = false;
+
     float MoveTimer = 0;
     float blockTimer = 0;
-    public float RecheckTimer;
-
+    public float StunFrame;
+    public float RecoveryFrame;
 
     [HideInInspector]
     public bool InAirAttack = false;
@@ -72,7 +80,7 @@ public class player1Controler : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(PlayerNumber);
+        GameCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
     }
 
     // Use this for initialization
@@ -100,8 +108,7 @@ public class player1Controler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
@@ -111,24 +118,62 @@ public class player1Controler : MonoBehaviour
         {
 
             if (Input.GetButton("Block" + PlayerNumber.ToString()) && crouch == false && up == false)
-            {
                 OnBlock = true;
-            }
             else
-            {
                 OnBlock = false;
-            }
 
             Vector3 movement = new Vector3(horizontal, 0, 0);
                    if (horizontal > 0)
-                   {
                        transform.localScale = new Vector3(1, 1, 1);
-                   }
                    else if (horizontal < 0)
-                   {
                        transform.localScale = new Vector3(-1, 1, 1);
-                   }
                    
+            if (onGround)
+            {
+                crouch = (vertical < -0.1f);
+                up = (vertical > 0.5f);
+                rig2D.gravityScale = m_OriginalGravity;
+                tempFlapTimes = 0;
+            }
+
+            if (!onGround)
+            {
+                crouch = (vertical < -0.1f);
+                falling = true;
+                up = false;
+                if (crouch && m_Slam == false)
+                {
+                    GameCam.ScreenSlowMo = true;
+                    CanMove = false;
+                    m_Slam = true;
+                    StartCoroutine(StartSlam());
+                }
+            }
+
+            if (up || OnBlock)
+            {
+                movement.x = 0;
+            }
+
+            if (!crouch)
+            {
+                rig2D.AddForce(movement * maxSpeed);
+            }
+        }
+
+        else if (CanMove == false && !m_Slam)
+        {
+            MoveTimer += Time.deltaTime;
+            RecheckMove();
+        }
+
+        // Debug.Log(MoveTimer + " " + PlayerNumber);
+    }
+
+    void Update()
+    {
+        if (CanMove == true)
+        {
             if (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) && crouch == false)
             {
                 if (!jumpKey && onGround == true)
@@ -143,69 +188,10 @@ public class player1Controler : MonoBehaviour
                 }
             }
             if (Input.GetButton("Jump" + PlayerNumber.ToString()) && crouch == false)
-            {
                 rig2D.gravityScale = m_FallingGravity;
-            }
             else
-            {
                 rig2D.gravityScale = m_OriginalGravity;
-            }
-
-            //if (vertical > 0.1f)
-            //{
-            //    if (!jumpKey)
-            //    {
-            //        jmpDuration += Time.deltaTime;
-            //        jmpForce += Time.deltaTime;
-
-            //        if (jmpDuration < JumpDuration)
-            //        {
-            //            rig2D.velocity = new Vector2(rig2D.velocity.x, jmpForce);
-            //        }
-            //        else
-            //        {
-            //            jumpKey = true;
-            //        }
-            //    }
-            //}
-
-            if (onGround)
-            {
-                crouch = (vertical < -0.1f);
-                up = (vertical > 0.5f);
-                rig2D.gravityScale = m_OriginalGravity;
-                tempFlapTimes = 0;
-            }
-
-            if (!onGround)
-            {
-                falling = true;
-                up = false;
-            }
-
-            if (up || OnBlock)
-            {
-                movement.x = 0;
-            }
-
-            if (!crouch)
-            {
-                rig2D.AddForce(movement * maxSpeed);
-            }
-            //else
-            //{
-            //    rig2D.velocity = Vector3.zero;
-            //}
-            //ScaleCheck();
         }
-
-        else if (CanMove == false)
-        {
-            MoveTimer += Time.deltaTime;
-            RecheckMove();
-        }
-
-        // Debug.Log(MoveTimer + " " + PlayerNumber);
         AttackInput();
         Damage();
         Block();
@@ -215,11 +201,16 @@ public class player1Controler : MonoBehaviour
 
     void RecheckMove()
     {
-        if (MoveTimer > RecheckTimer)
+        if (MoveTimer > RecoveryFrame)
         {
             CanMove = true;
-            MoveTimer = 0;
         }
+  /*      else if (MoveTimer > StunFrame && damage)
+        {
+            damage = false;
+            CanMove = true;
+            MoveTimer = 0;
+        }*/
     }
 
     public void ScaleCheck()
@@ -294,6 +285,33 @@ public class player1Controler : MonoBehaviour
 
 		return HitDir;
 	}
+    
+    IEnumerator StartSlam()
+    {
+        crouch = (vertical < -0.1f);
+        float i = 0;
+        while (i < m_SlamHold)
+        {
+            if (crouch)
+            {
+                i += Time.fixedDeltaTime;
+            }
+            else
+            {
+                i += 100;
+                Debug.Log("out");
+            }
+        }
+        i = 0;
+        rig2D.velocity = m_knockBack.SlamDown;
+        while (i < m_SlamStop)
+        {
+            if(onGround)
+                i += Time.deltaTime;
+            yield return null;
+        }
+        m_Slam = false;
+    }
 
     void Damage()
     {
@@ -421,6 +439,7 @@ public class player1Controler : MonoBehaviour
         block = false;
         UpdateAnimator();
         damage = false;
+        m_Slam = false;
     }
 
     void OnCollisionStay2D(Collision2D col)

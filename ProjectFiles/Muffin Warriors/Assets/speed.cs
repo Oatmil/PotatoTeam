@@ -7,7 +7,7 @@ public class speed : MonoBehaviour {
 	public float m_theSpeed = 1.0f;
    
 
-	void Update()
+	void FixedUpdate()
 	{
 		var m_Particles = GetComponent<ParticleEmitter> ().particles;
 		for (int i = 0; i < m_Particles.Length; i++) {

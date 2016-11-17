@@ -15,7 +15,7 @@ public class ParticleSystemAutodisable : MonoBehaviour {
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
         if (ps)

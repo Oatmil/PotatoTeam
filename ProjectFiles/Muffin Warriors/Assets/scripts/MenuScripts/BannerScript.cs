@@ -16,8 +16,8 @@ public class BannerScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        FadeOut(Time.deltaTime);
+    void FixedUpdate () {
+        FadeOut(Time.fixedDeltaTime);
         
 	}
 
