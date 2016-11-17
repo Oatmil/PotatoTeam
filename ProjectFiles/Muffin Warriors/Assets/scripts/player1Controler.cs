@@ -143,6 +143,9 @@ public class player1Controler : MonoBehaviour
                 up = false;
                 if (crouch && m_Slam == false)
                 {
+                    GameObject SlamSpark = SlamDownSparkPool.m_instance2.NewObject();
+                    SlamSpark.transform.position = transform.position;
+                    SlamSpark.SetActive(true);
                     GameCam.ScreenSlowMo = true;
                     CanMove = false;
                     m_Slam = true;

@@ -38,9 +38,10 @@ public class RespawnScript : MonoBehaviour {
             col.transform.GetComponent<player1Controler>().deathCounter += 1;
             col.transform.GetComponent<player1Controler>().tempFlapTimes = 10;
 
-            // GameObject tempObj = GameObject.Instantiate(m_DeathBoom, col.transform.root.position, Quaternion.identity) as GameObject;
+            GameObject Deathpe = SlamDownSparkPool.m_instance2.DeathPE();
+            Deathpe.transform.position = col.transform.position;
+            Deathpe.SetActive(true);
             RandomSpawnPoint(col);
-            //  tempObj.GetComponent<ParticleSystemAutodisable>().m_SuckPos = col.gameObject;
 
         }
 	}
