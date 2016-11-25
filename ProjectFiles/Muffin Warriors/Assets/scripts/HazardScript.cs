@@ -7,6 +7,7 @@ public class HazardScript : MonoBehaviour {
     public GameObject m_Environment3Haz;
     public GameObject m_Environment4Haz;
     public GameObject m_Environment5Haz;
+    public GameObject m_Environment6Haz;
 
     public void SetHazard(int m_randomNumber)
     {
@@ -17,6 +18,7 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(false);
             m_Environment4Haz.SetActive(false);
             m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(false);
         }
         if (m_randomNumber == 1)
         {
@@ -25,6 +27,7 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(false);
             m_Environment4Haz.SetActive(false);
             m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(false);
         }
         if (m_randomNumber == 2)
         {
@@ -33,6 +36,7 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(true);
             m_Environment4Haz.SetActive(false);
             m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(false);
         }
         if (m_randomNumber == 3)
         {
@@ -41,6 +45,7 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(false);
             m_Environment4Haz.SetActive(true);
             m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(false);
         }
         if (m_randomNumber == 4)
         {
@@ -49,6 +54,7 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(false);
             m_Environment4Haz.SetActive(false);
             m_Environment5Haz.SetActive(true);
+            m_Environment6Haz.SetActive(false);
         }
         if (m_randomNumber == 5)
         {
@@ -57,6 +63,16 @@ public class HazardScript : MonoBehaviour {
             m_Environment3Haz.SetActive(false);
             m_Environment4Haz.SetActive(false);
             m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(true);
+        }
+        if (m_randomNumber == 6)
+        {
+            m_Environment1Haz.SetActive(false);
+            m_Environment2Haz.SetActive(false);
+            m_Environment3Haz.SetActive(false);
+            m_Environment4Haz.SetActive(false);
+            m_Environment5Haz.SetActive(false);
+            m_Environment6Haz.SetActive(false);
         }
     }
 }

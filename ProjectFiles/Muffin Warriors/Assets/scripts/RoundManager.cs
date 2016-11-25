@@ -73,7 +73,10 @@ public class RoundManager : MonoBehaviour
 		tempPreRound = PreRoundCountDown;
 		tempRound = RoundCountDown;
 		StartCoroutine(TurnOnPlayerControls());
-		StartCoroutine(RoundIntro());
+        if (!PlayButtonScript.m_instance.b_Extreme)
+            StartCoroutine(RoundIntro());
+        else if (PlayButtonScript.m_instance.b_Extreme)
+            StartCoroutine(ExtremeRoundIntro());
         m_managerScript = transform.GetComponent<ResetButton>();
         for (int i = 0; i < m_moveObject.Length; i++)
         {
@@ -137,11 +140,26 @@ public class RoundManager : MonoBehaviour
 		StartCoroutine(RoundRunning());
 	}
 
+    IEnumerator ExtremeRoundIntro()
+    {
+        while (PreRoundCountDown >= 0)
+        {
+            StartCoroutine(TurnOffPlayerControls());
+            PreRoundCountDown -= Time.deltaTime;
+
+            m_TimerCanvas.text = "READY!";
+            yield return null;
+        }
+        MatchStarted = true;
+        RoundCounter += 1;
+        StartCoroutine(ExtremeRoundRunning());
+    }
+
 	IEnumerator RoundRunning()
 	{
 		while (RoundCountDown >= 0)
 		{
-            if (RoundCountDown <= 25)
+            if (RoundCountDown <= 30)
             {
                 m_Hazard.SetHazard(PrevLight1); // begin hazard
             }
@@ -158,7 +176,7 @@ public class RoundManager : MonoBehaviour
 			m_TimerCanvas.text = RoundCountDown.ToString("f2");
 			yield return null;
 		}
-        m_Hazard.SetHazard(5); // stop the hazard
+        m_Hazard.SetHazard(6); // stop the hazard
         m_RoundOverImage.SetActive(true);
 		audio.clip = m_RoundEndAudio;
 		if (audio.isPlaying == false)
@@ -189,6 +207,60 @@ public class RoundManager : MonoBehaviour
 			ResetRound();
 		}
 	}
+
+    IEnumerator ExtremeRoundRunning()
+    {
+        while (RoundCountDown >= 0)
+        {
+            if (RoundCountDown <= 53)
+            {
+                ExtremeLevelSelector.m_instance.SelectExtreme(0); // begin hazard
+            }
+            if (Time.timeScale == 0)
+            {
+                pausePlayers();
+                RoundCountDown -= 0;
+            }
+            else
+            {
+                unpausePlayers();
+                RoundCountDown -= Time.deltaTime;
+            }
+            m_TimerCanvas.text = RoundCountDown.ToString("f2");
+            yield return null;
+        }
+        ExtremeLevelSelector.m_instance.SelectExtreme(100); // stop the hazard
+        m_RoundOverImage.SetActive(true);
+        audio.clip = m_RoundEndAudio;
+        if (audio.isPlaying == false)
+        {
+            audio.Play();
+        }
+        StartCoroutine(TurnOffPlayerControls());
+
+        yield return new WaitForSeconds(2.0f);
+        RoundEnd();
+        yield return new WaitForSeconds(3.0f);
+        ResetBottles();
+        if (Player1Score == 2)
+        {
+            EndGamePlayerWinner(1);
+            yield return new WaitForSeconds(2.0f);
+            m_managerScript.GameOver(m_TotalDeaths);
+        }
+        else if (Player2Score == 2)
+        {
+            EndGamePlayerWinner(2);
+            yield return new WaitForSeconds(2.0f);
+            m_managerScript.GameOver(m_TotalDeaths);
+
+        }
+        else if (Player1Score != 2 && Player2Score != 2)
+        {
+            ResetRound();
+        }
+    }
+
 	void ResetRound()
 	{
 		RoundCountDown = tempRound;
@@ -352,7 +424,7 @@ public class RoundManager : MonoBehaviour
         int randomlight;
         do
         {
-            randomlight = Random.Range(0, 5);
+            randomlight = Random.Range(0, 6);
         } while (randomlight == PrevLight1 || randomlight == PrevLight2);
         PrevLight2 = PrevLight1;
         PrevLight1 = randomlight;
@@ -380,9 +452,9 @@ public class RoundManager : MonoBehaviour
     }
 
     // lighting setting for editor and saving
-    public Color[] m_lightColors = new Color[20];
-    [HideInInspector]
-    public float[] m_lightIntensity = new float[20];
+    public Color[] m_lightColors = new Color[24];
+
+    public float[] m_lightIntensity = new float[24];
     public int m_EnvironmentNumber;
     
     public void PreviewEnvironment()
