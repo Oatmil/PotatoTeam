@@ -7,7 +7,6 @@ public class ExtremeLevelSelector : MonoBehaviour {
     public static ExtremeLevelSelector m_instance;
 
     public List<GameObject> L_extremeLevels = new List<GameObject>();
-    public List<GameObject> L_itemsTurnOff = new List<GameObject>();
 
     void Awake()
     {
@@ -19,15 +18,14 @@ public class ExtremeLevelSelector : MonoBehaviour {
         if (L_extremeLevels[LevelChoice] != null)
         {
             L_extremeLevels[LevelChoice].SetActive(true);
-            foreach (GameObject Obj in L_itemsTurnOff)
-            {
-                Obj.SetActive(false);
-            }
         }
-        else
+    }
+
+    public void TurnOffExtremeProps()
+    {
+        foreach (GameObject Obj in L_extremeLevels)
         {
-            foreach (GameObject Obj in L_extremeLevels)
-                Obj.SetActive(false);
+            Obj.SetActive(false);
         }
     }
 

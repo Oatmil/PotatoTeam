@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 59e939387fe6ec444acc4db0ed5fd6d8
+timeCreated: 1480946289
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shock wave 565x500_0
+    21300002: shock wave 565x500_1
+    21300004: shock wave 565x500_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: shock wave 565x500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 150.5, y: 66}
+        - {x: -197.5, y: 66}
+        - {x: -197.5, y: 41}
+        - {x: -139.5, y: -13}
+        - {x: 145.5, y: -13}
+        - {x: 163.5, y: 10}
+        - {x: 165.5, y: 24}
+        - {x: 165.5, y: 54}
+    - name: shock wave 565x500_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -271.5, y: 23}
+        - {x: -271.5, y: 5}
+        - {x: -266.5, y: -13}
+        - {x: 237.5, y: -13}
+        - {x: 237.5, y: 23}
+    - name: shock wave 565x500_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1548
+        width: 565
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -176.5, y: -1}
+        - {x: -277.5, y: -1}
+        - {x: -278.5, y: -4}
+        - {x: -276.5, y: -7}
+        - {x: -258.5, y: -13}
+        - {x: -187.5, y: -13}
+        - {x: -112.5, y: -12}
+        - {x: -110.5, y: -10}
+        - {x: -111.5, y: -7}
+        - {x: -138.5, y: -3}
+      - - {x: 278.5, y: 1}
+        - {x: 110.5, y: 1}
+        - {x: 77.5, y: -7}
+        - {x: 77.5, y: -11}
+        - {x: 78.5, y: -12}
+        - {x: 82.5, y: -13}
+        - {x: 191.5, y: -13}
+        - {x: 261.5, y: -12}
+        - {x: 279.5, y: -4}
+        - {x: 279.5, y: -1}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

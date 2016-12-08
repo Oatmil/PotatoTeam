@@ -11,6 +11,7 @@ public class BgmSound : MonoBehaviour {
     public AudioClip m_Env4;
     public AudioClip m_Env5;
 
+    public AudioClip m_Extr1;
 
     void Start()
     {
@@ -32,6 +33,14 @@ public class BgmSound : MonoBehaviour {
         }
     }
 
+    public void SetExtremeAudio(int soundNum)
+    {
+        if (soundNum == 0)
+        {
+            m_audio.clip = m_Extr1;
+            m_audio.Play();
+        }
+    }
 
     public void SetAudio(int soundNum)
     {

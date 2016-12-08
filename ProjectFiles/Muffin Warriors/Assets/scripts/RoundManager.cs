@@ -42,7 +42,8 @@ public class RoundManager : MonoBehaviour
     HazardScript m_Hazard;
     Environment_BottleAndJar[] m_moveObject = new Environment_BottleAndJar[40];
 
-    public int m_TotalDeaths;
+    public int Player1Death;
+    public int Player2Death;
 
 	void Awake()
 	{
@@ -73,17 +74,20 @@ public class RoundManager : MonoBehaviour
 		tempPreRound = PreRoundCountDown;
 		tempRound = RoundCountDown;
 		StartCoroutine(TurnOnPlayerControls());
+
         if (!PlayButtonScript.m_instance.b_Extreme)
             StartCoroutine(RoundIntro());
         else if (PlayButtonScript.m_instance.b_Extreme)
             StartCoroutine(ExtremeRoundIntro());
+
         m_managerScript = transform.GetComponent<ResetButton>();
         for (int i = 0; i < m_moveObject.Length; i++)
         {
             GameObject[] tempObject = GameObject.FindGameObjectsWithTag("EnvironmentObject");
             m_moveObject[i] = tempObject[i].GetComponent<Environment_BottleAndJar>();
         }
-        
+
+
 	}
 
 	// Update is called once per frame
@@ -142,6 +146,7 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator ExtremeRoundIntro()
     {
+        m_BGMAudio.SetExtremeAudio(0);
         while (PreRoundCountDown >= 0)
         {
             StartCoroutine(TurnOffPlayerControls());
@@ -193,14 +198,17 @@ public class RoundManager : MonoBehaviour
 		{
 			EndGamePlayerWinner(1);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver(m_TotalDeaths);
+            m_managerScript.P1DeathTxt(Player1Death);
+            m_managerScript.P2DeathText(Player2Death);
+            m_managerScript.WinnerIcon(1);
 		}
 		else if (Player2Score == 2)
 		{
 			EndGamePlayerWinner(2);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver(m_TotalDeaths);
-            
+            m_managerScript.P1DeathTxt(Player1Death);
+            m_managerScript.P2DeathText(Player2Death);
+            m_managerScript.WinnerIcon(2);            
 		}
 		else if (Player1Score != 2 && Player2Score != 2)
 		{
@@ -210,11 +218,14 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator ExtremeRoundRunning()
     {
+        bool explosion = false;
         while (RoundCountDown >= 0)
         {
-            if (RoundCountDown <= 53)
+            if (RoundCountDown <= 53 && !explosion)
             {
                 ExtremeLevelSelector.m_instance.SelectExtreme(0); // begin hazard
+                StartCoroutine(ExtremeTunnel.m_instance.StartCountDown());
+                explosion = true;
             }
             if (Time.timeScale == 0)
             {
@@ -229,7 +240,7 @@ public class RoundManager : MonoBehaviour
             m_TimerCanvas.text = RoundCountDown.ToString("f2");
             yield return null;
         }
-        ExtremeLevelSelector.m_instance.SelectExtreme(100); // stop the hazard
+        ExtremeLevelSelector.m_instance.TurnOffExtremeProps(); // stop the hazard
         m_RoundOverImage.SetActive(true);
         audio.clip = m_RoundEndAudio;
         if (audio.isPlaying == false)
@@ -246,14 +257,17 @@ public class RoundManager : MonoBehaviour
         {
             EndGamePlayerWinner(1);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver(m_TotalDeaths);
+            m_managerScript.P1DeathTxt(Player1Death);
+            m_managerScript.P2DeathText(Player2Death);
+            m_managerScript.WinnerIcon(1);
         }
         else if (Player2Score == 2)
         {
             EndGamePlayerWinner(2);
             yield return new WaitForSeconds(2.0f);
-            m_managerScript.GameOver(m_TotalDeaths);
-
+            m_managerScript.P1DeathTxt(Player1Death);
+            m_managerScript.P2DeathText(Player2Death);
+            m_managerScript.WinnerIcon(2);
         }
         else if (Player1Score != 2 && Player2Score != 2)
         {
@@ -269,8 +283,13 @@ public class RoundManager : MonoBehaviour
         m_RoundOverImage.SetActive(false);
         m_Player1WinBanner.SetActive(false);
         m_Player2WinBanner.SetActive(false);
-        m_PlayerDrawBanner.SetActive(false);
-		StartCoroutine(RoundIntro());
+        m_PlayerDrawBanner.SetActive(false); 
+        
+        if (!PlayButtonScript.m_instance.b_Extreme)
+            StartCoroutine(RoundIntro());
+        else if (PlayButtonScript.m_instance.b_Extreme)
+            StartCoroutine(ExtremeRoundIntro());
+
 		int[] PlayerNum = new int[2];
 		for (int i = 0; i < PlayersList.Length; i++)
 		{
@@ -278,10 +297,12 @@ public class RoundManager : MonoBehaviour
 			if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 1)
 			{
 				PlayersList[0].transform.position = Player1Pos;
+                PlayersList[0].SetActive(true);
 			}
 			else if (PlayersList[i].GetComponent<player1Controler>().PlayerNumber == 2)
 			{
 				PlayersList[1].transform.position = Player2Pos;
+                PlayersList[1].SetActive(true);
 			}
 			PlayersList[i].GetComponent<player1Controler>().deathCounter = 0;
 		}
@@ -291,7 +312,6 @@ public class RoundManager : MonoBehaviour
     {
         Player1Score = 0;
         Player2Score = 0;
-        m_TotalDeaths = 0;
 
         RoundCountDown = tempRound;
         PreRoundCountDown = tempPreRound;
@@ -321,7 +341,6 @@ public class RoundManager : MonoBehaviour
 	{
 		int[] deaths = new int[2];
 		int[] PlayerNum = new int[2];
-
 		for (int i = 0; i < PlayersList.Length; i++)
 		{
 			deaths[i] = PlayersList[i].GetComponent<player1Controler>().deathCounter;
@@ -348,10 +367,12 @@ public class RoundManager : MonoBehaviour
 				//m_TimerCanvas.text = "Tied";
                 m_PlayerDrawBanner.SetActive(true);
 			}
-            m_TotalDeaths += deaths[j] + deaths[j + 1];
+            Player1Death += deaths[j];
+            Player2Death += deaths[j + 1];
 			deaths[j] = 0;
 			deaths[j + 1] = 0;
 		}
+        
 	}
 
 	void EndGamePlayerWinner(int playerNumber)

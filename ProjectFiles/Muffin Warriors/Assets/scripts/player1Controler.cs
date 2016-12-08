@@ -60,6 +60,8 @@ public class player1Controler : MonoBehaviour
     public float noblock;
     public bool CanMove = false;
     public bool m_Slam = false;
+    [SerializeField]
+    private bool m_NoSlam;
 
     float MoveTimer = 0;
     float blockTimer = 0;
@@ -130,6 +132,7 @@ public class player1Controler : MonoBehaviour
                    
             if (onGround)
             {
+                m_NoSlam = false;
                 crouch = (vertical < -0.1f);
                 up = (vertical > 0.5f);
                 rig2D.gravityScale = m_OriginalGravity;
@@ -141,7 +144,7 @@ public class player1Controler : MonoBehaviour
                 crouch = (vertical < -0.1f);
                 falling = true;
                 up = false;
-                if (crouch && m_Slam == false)
+                if (crouch && m_Slam == false && !m_NoSlam)
                 {
                     GameObject SlamSpark = SlamDownSparkPool.m_instance2.NewObject();
                     SlamSpark.transform.position = transform.position;
@@ -207,13 +210,9 @@ public class player1Controler : MonoBehaviour
         if (MoveTimer > RecoveryFrame)
         {
             CanMove = true;
-        }
-  /*      else if (MoveTimer > StunFrame && damage)
-        {
-            damage = false;
-            CanMove = true;
+            
             MoveTimer = 0;
-        }*/
+        }
     }
 
     public void ScaleCheck()
@@ -320,6 +319,7 @@ public class player1Controler : MonoBehaviour
     {
         if (GetBlocked == true)
         {
+            m_NoSlam = true;
             noDamageTimer += Time.deltaTime;
             if (noDamageTimer > noDamage)
             {
@@ -330,6 +330,7 @@ public class player1Controler : MonoBehaviour
         }
         if (damage)
         {
+            m_NoSlam = true;
             CanMove = false;
             noDamageTimer += Time.deltaTime;
             OnBlock = false;
